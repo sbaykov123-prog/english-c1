@@ -994,5 +994,20 @@
     "note": "Especially common in American English; British change gear is also used.",
     "source": "conversation",
     "initialStatus": "добавлено в чате"
+  },
+  {
+    "id": "phrase-strike-a-bargain-20261110",
+    "term": "to strike a bargain",
+    "ipa": "/tə ˌstraɪk ə ˈbɑːɡɪn/",
+    "ru": "заключить сделку; договориться об условиях",
+    "deck": "Работа и переговоры",
+    "definition": "To reach an agreement with someone, usually after negotiation, with benefits or concessions for both sides.",
+    "examples": [
+      "After lengthy negotiations, the two companies finally struck a bargain.",
+      "We struck a bargain: I would handle the research, and she would prepare the presentation."
+    ],
+    "note": "Usually: strike a bargain with someone; strike a bargain over/on something. More formal than make a deal.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая"
   }
 ]
