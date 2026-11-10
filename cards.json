@@ -1,0 +1,998 @@
+[
+  {
+    "id": "94691106045237",
+    "term": "a blessing in disguise",
+    "ipa": "/ə ˈblesɪŋ ɪn dɪsˈɡaɪz/",
+    "ru": "не было бы счастья, да несчастье помогло",
+    "deck": "Повседневные",
+    "definition": "Something that seems bad initially but ultimately has a positive result.",
+    "examples": [
+      "Losing that job turned out to be a blessing in disguise."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "ec4ebdcec84fbf",
+    "term": "a buzzkill",
+    "ipa": "/ə ˈbʌz.kɪl/",
+    "ru": "зануда, тот, кто портит всем настроение; облом",
+    "deck": "Повседневные",
+    "definition": "Someone or something that spoils other people's enjoyment or excitement.",
+    "examples": [
+      "Don't be a buzzkill — we're just celebrating."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "новая"
+  },
+  {
+    "id": "17a35d204994a5",
+    "term": "a hell of a lot (of something)",
+    "ipa": "/ə ˌhel əv ə ˈlɒt/",
+    "ru": "чертовски много, до хрена, гораздо (перед сравнительной степенью)",
+    "deck": "Повседневные",
+    "definition": "An extremely large amount or quantity of something.",
+    "examples": [
+      "We spent a hell of a lot of time fixing the problem."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "новая"
+  },
+  {
+    "id": "47bddde2f42c2a",
+    "term": "a line of sight",
+    "ipa": "/ə ˌlaɪn əv ˈsaɪt/",
+    "ru": "линия взгляда / прямая видимость, поле зрения",
+    "deck": "Повседневные",
+    "definition": "A clear, unobstructed path between an observer and what they can see.",
+    "examples": [
+      "The trees blocked our line of sight to the entrance."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "5ba8043a39609e",
+    "term": "a sense of purpose",
+    "ipa": "/ə ˌsens əv ˈpɜːpəs/",
+    "ru": "ощущение смысла, чувство цели (понимание, ради чего ты что-то делаешь)",
+    "deck": "Повседневные",
+    "definition": "The feeling that your actions have meaning and a clear goal.",
+    "examples": [
+      "Volunteering gave her a renewed sense of purpose."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "295b15973caa97",
+    "term": "at weekends / at the weekend",
+    "ipa": "/ət ˌwiːkˈendz | ət ðə ˌwiːkˈend/",
+    "ru": "по выходным / в выходные",
+    "deck": "Повседневные",
+    "definition": "During the days at the end of the working week, either generally or on a particular occasion.",
+    "examples": [
+      "I usually go hiking at weekends."
+    ],
+    "note": "Common in British English; American usage often on weekends / on the weekend.",
+    "source": "user-file",
+    "initialStatus": "новая"
+  },
+  {
+    "id": "f8179960347228",
+    "term": "but for someone / something",
+    "ipa": "/ˈbʌt fə ˈsʌmwʌn | ˈsʌmθɪŋ/",
+    "ru": "если бы не; если бы не кто-то / что-то; без (кого-то / чего-то)",
+    "deck": "Повседневные",
+    "definition": "If it had not been for a particular person or thing.",
+    "examples": [
+      "But for your help, we would have missed the deadline."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "новая"
+  },
+  {
+    "id": "3a684d0e81f32e",
+    "term": "in for a penny, in for a pound",
+    "ipa": "/ˌɪn fər ə ˈpeni ˌɪn fər ə ˈpaʊnd/",
+    "ru": "сказал «а» — говори «б»; взялся за гуж — не говори, что не дюж; гулять так гулять",
+    "deck": "Повседневные",
+    "definition": "Once committed to something, you should see it through even if it becomes difficult.",
+    "examples": [
+      "We've started the renovation; in for a penny, in for a pound."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "fca0768295e9d9",
+    "term": "in passing",
+    "ipa": "/ɪn ˈpɑːsɪŋ/",
+    "ru": "между прочим, вскользь, мимоходом",
+    "deck": "Повседневные",
+    "definition": "Briefly or casually, without giving something much attention.",
+    "examples": [
+      "She mentioned the vacancy in passing."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "506a3623f2515c",
+    "term": "in the foreground",
+    "ipa": "/ɪn ðə ˈfɔːɡraʊnd/",
+    "ru": "на переднем плане",
+    "deck": "Повседневные",
+    "definition": "In the part of a picture or scene closest to the viewer.",
+    "examples": [
+      "A cyclist appears in the foreground of the photograph."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "20eb1eca648ef0",
+    "term": "on the decline / on the wane",
+    "ipa": "/ɒn ðə dɪˈklaɪn | ɒn ðə ˈweɪn/",
+    "ru": "идёт на спад, угасает, снижается",
+    "deck": "Повседневные",
+    "definition": "Becoming less common, strong, popular or successful.",
+    "examples": [
+      "Demand for the product is on the decline."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "новая"
+  },
+  {
+    "id": "da43c40563737b",
+    "term": "ordinary people",
+    "ipa": "/ˈɔːdnəri ˈpiːpl/",
+    "ru": "обычные / простые люди",
+    "deck": "Повседневные",
+    "definition": "People in general rather than the wealthy, famous or powerful.",
+    "examples": [
+      "The policy will affect ordinary people most."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "4566b1479e22bd",
+    "term": "prohibitively expensive",
+    "ipa": "/prəˌhɪbɪtɪvli ɪkˈspensɪv/",
+    "ru": "непомерно / запредельно дорогой",
+    "deck": "Повседневные",
+    "definition": "So costly that paying for it is practically impossible or unreasonable.",
+    "examples": [
+      "Housing in the city centre is prohibitively expensive."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "6bbb855c4b1f3e",
+    "term": "pudgy (adj.)",
+    "ipa": "/ˈpʌdʒi/",
+    "ru": "пухлый, пухленький, полненький",
+    "deck": "Повседневные",
+    "definition": "Slightly fat, especially with a soft, rounded appearance.",
+    "examples": [
+      "The puppy had a pudgy little belly."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "23e104c59dc6fd",
+    "term": "the back of a chair",
+    "ipa": "/ðə ˈbæk əv ə ˈtʃeə/",
+    "ru": "спинка стула",
+    "deck": "Повседневные",
+    "definition": "The part of a seat that supports a person's back.",
+    "examples": [
+      "He hung his jacket over the back of a chair."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "7e2a5c5872de6a",
+    "term": "to appeal to someone",
+    "ipa": "/əˈpiːl tə ˈsʌmwʌn/",
+    "ru": "привлекать, нравиться кому-то. That's what appeals to me most — именно это мне больше всего нравится.",
+    "deck": "Повседневные",
+    "definition": "To attract or interest a person; to seem enjoyable or desirable to them.",
+    "examples": [
+      "The chance to work independently really appeals to me."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "b9e690a83456dc",
+    "term": "to be here to stay",
+    "ipa": "/bi ˌhɪə tə ˈsteɪ/",
+    "ru": "это надолго, пришло всерьёз и навсегда",
+    "deck": "Повседневные",
+    "definition": "To have become a lasting part of life rather than a temporary trend.",
+    "examples": [
+      "Remote work looks as though it's here to stay."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "a637091843d2e9",
+    "term": "to blur the line(s) between X and Y",
+    "ipa": "/blɜː ðə ˈlaɪn bɪˈtwiːn/",
+    "ru": "стирать / размывать грань между X и Y",
+    "deck": "Повседневные",
+    "definition": "To make the distinction between two things less clear.",
+    "examples": [
+      "AI can blur the line between human and machine-generated content."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "4e54bfd3322b88",
+    "term": "to come as a surprise (to someone)",
+    "ipa": "/kʌm əz ə səˈpraɪz/",
+    "ru": "оказаться неожиданностью, стать сюрпризом",
+    "deck": "Повседневные",
+    "definition": "To be unexpected or cause someone to feel surprised.",
+    "examples": [
+      "The decision came as a surprise to everyone."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "новая"
+  },
+  {
+    "id": "642cec135cbbfc",
+    "term": "to get the hang of something",
+    "ipa": "/ɡet ðə ˈhæŋ əv ˈsʌmθɪŋ/",
+    "ru": "освоиться, наловчиться, набить руку",
+    "deck": "Повседневные",
+    "definition": "To learn how to do something through practice and become comfortable with it.",
+    "examples": [
+      "I'm finally getting the hang of the new software."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "5e345b495b1ec0",
+    "term": "to play a role in something",
+    "ipa": "/pleɪ ə ˈrəʊl ɪn/",
+    "ru": "играть роль в чём-то",
+    "deck": "Повседневные",
+    "definition": "To have an influence or function in a process or situation.",
+    "examples": [
+      "Trust plays a crucial role in negotiations."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "d8204e7ac73da2",
+    "term": "to pose a risk to something / someone",
+    "ipa": "/pəʊz ə ˈrɪsk tə/",
+    "ru": "представлять угрозу / риск для",
+    "deck": "Повседневные",
+    "definition": "To create the possibility of harm or danger for someone or something.",
+    "examples": [
+      "The delay could pose a risk to patient safety."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "334a9196d1ac52",
+    "term": "to rest on / upon something",
+    "ipa": "/ˈrest ɒn | əˈpɒn ˈsʌmθɪŋ/",
+    "ru": "1) основываться на, зависеть от, держаться на; 2) лежать / опираться на; (о взгляде) остановиться на",
+    "deck": "Повседневные",
+    "definition": "To depend on or be based on a particular fact, principle or condition.",
+    "examples": [
+      "The whole argument rests on a questionable assumption."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "106efcace80f5b",
+    "term": "to show no sign(s) of slowing down",
+    "ipa": "/ʃəʊ ˈnəʊ saɪn əv ˌsləʊɪŋ ˈdaʊn/",
+    "ru": "не собирается замедляться, не сбавляет темп",
+    "deck": "Повседневные",
+    "definition": "To continue at a fast rate without any indication of becoming slower.",
+    "examples": [
+      "The company shows no signs of slowing down."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "afebab77c3daff",
+    "term": "to sing someone's / something's praises",
+    "ipa": "/sɪŋ ˈsʌmwʌnz ˈpreɪzɪz/",
+    "ru": "расхваливать, петь дифирамбы, восторгаться",
+    "deck": "Повседневные",
+    "definition": "To speak about someone or something with enthusiastic approval.",
+    "examples": [
+      "Her former colleagues keep singing her praises."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "новая"
+  },
+  {
+    "id": "b7a84355aec982",
+    "term": "to warn of something",
+    "ipa": "/ˈwɔːn əv/",
+    "ru": "предупреждать о (чём-то опасном)",
+    "deck": "Повседневные",
+    "definition": "To tell people about a potential danger or unwanted development.",
+    "examples": [
+      "Experts warned of further disruption."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "acaf827569db1d",
+    "term": "would love it if … (I'd love it if …)",
+    "ipa": "/wʊd ˈlʌv ɪt ɪf/",
+    "ru": "Я был бы очень рад, если бы... / Мне бы очень хотелось, чтобы...",
+    "deck": "Повседневные",
+    "definition": "To strongly wish for a particular event or situation to happen.",
+    "examples": [
+      "I'd love it if we could finish early today."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "d26a172c0d4c33",
+    "term": "a sustained acceleration in something",
+    "ipa": "/ə səˈsteɪnd əkˌseləˈreɪʃn ɪn/",
+    "ru": "устойчивое ускорение (роста чего-либо)",
+    "deck": "Работа и переговоры",
+    "definition": "A continuing increase in how quickly something is growing or changing.",
+    "examples": [
+      "The report found a sustained acceleration in productivity growth."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "новая"
+  },
+  {
+    "id": "948ef2ab72ef61",
+    "term": "an initial valuation",
+    "ipa": "/ən ɪˌnɪʃl ˌvæljuˈeɪʃn/",
+    "ru": "первоначальная оценка (стоимости компании, актива)",
+    "deck": "Работа и переговоры",
+    "definition": "The first assessment of the monetary worth of a business or asset.",
+    "examples": [
+      "The initial valuation was lower than investors expected."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "1e9b5d6dc592ef",
+    "term": "at a fraction of the cost",
+    "ipa": "/ət ə ˈfrækʃn əv ðə ˈkɒst/",
+    "ru": "за малую долю стоимости, в разы дешевле",
+    "deck": "Работа и переговоры",
+    "definition": "For a much smaller share of the usual or expected price.",
+    "examples": [
+      "The software provides similar features at a fraction of the cost."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "d4e4e3fa5795c4",
+    "term": "on balance",
+    "ipa": "/ɒn ˈbæləns/",
+    "ru": "в целом, взвесив все за и против; в итоге",
+    "deck": "Работа и переговоры",
+    "definition": "Considering all the advantages and disadvantages together.",
+    "examples": [
+      "On balance, the benefits outweigh the risks."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "3e5e38936921bd",
+    "term": "the case for (something)",
+    "ipa": "/ðə ˈkeɪs fə/",
+    "ru": "доводы / аргументы в пользу (чего-то)",
+    "deck": "Работа и переговоры",
+    "definition": "The arguments and evidence supporting a particular proposal or position.",
+    "examples": [
+      "She made a convincing case for reform."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "8c7d5c159a3e95",
+    "term": "to apply for a job",
+    "ipa": "/əˈplaɪ fər ə ˈdʒɒb/",
+    "ru": "подать заявку / откликнуться на вакансию, устраиваться на работу",
+    "deck": "Работа и переговоры",
+    "definition": "To submit an application to be considered for employment.",
+    "examples": [
+      "I applied for a job at a technology company."
+    ],
+    "note": "Apply for a position, but apply to a company.",
+    "source": "user-file",
+    "initialStatus": "новая"
+  },
+  {
+    "id": "ddb899e9876e6c",
+    "term": "to apply to a company",
+    "ipa": "/əˈplaɪ tə ə ˈkʌmpəni/",
+    "ru": "подать заявку в компанию, обратиться в компанию (на работу)",
+    "deck": "Работа и переговоры",
+    "definition": "To send an application to an organisation, especially seeking employment.",
+    "examples": [
+      "She applied to several companies before getting an interview."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "новая"
+  },
+  {
+    "id": "31c8b838bd400e",
+    "term": "to carry out due diligence",
+    "ipa": "/ˌkæri aʊt ˌdjuː ˈdɪlɪdʒəns/",
+    "ru": "провести юридическую / финансовую проверку (дью-дилидженс)",
+    "deck": "Работа и переговоры",
+    "definition": "To investigate a business or transaction carefully before a major decision.",
+    "examples": [
+      "The buyer carried out due diligence before the acquisition."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "e9747f4d1d6856",
+    "term": "to follow suit",
+    "ipa": "/ˌfɒləʊ ˈsuːt/",
+    "ru": "последовать примеру, сделать то же самое",
+    "deck": "Работа и переговоры",
+    "definition": "To do the same thing that another person or organisation has just done.",
+    "examples": [
+      "One bank reduced its fees, and others followed suit."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "4e0454eaf35632",
+    "term": "to harness the strengths of something",
+    "ipa": "/ˈhɑːnɪs ðə ˈstreŋθs əv/",
+    "ru": "использовать сильные стороны чего-либо",
+    "deck": "Работа и переговоры",
+    "definition": "To make effective use of the advantages or abilities of something.",
+    "examples": [
+      "The team needs to harness the strengths of both approaches."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "eddb766fc7f988",
+    "term": "to keep a firm grip on something",
+    "ipa": "/kiːp ə ˌfɜːm ˈɡrɪp ɒn/",
+    "ru": "крепко держать под контролем",
+    "deck": "Работа и переговоры",
+    "definition": "To maintain strong control over a situation or activity.",
+    "examples": [
+      "The manager kept a firm grip on spending."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "1fdedf1601bebf",
+    "term": "to laud the benefits of something",
+    "ipa": "/lɔːd ðə ˈbenɪfɪts əv/",
+    "ru": "восхвалять преимущества чего-либо",
+    "deck": "Работа и переговоры",
+    "definition": "To praise the positive effects or advantages of something enthusiastically.",
+    "examples": [
+      "Executives lauded the benefits of the new system."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "083bb9b88a447a",
+    "term": "to make significant inroads into something",
+    "ipa": "/meɪk sɪɡˈnɪfɪkənt ˈɪnrəʊdz ˈɪntuː/",
+    "ru": "значительно продвинуться, заметно потеснить, проникнуть (на рынок, в сферу)",
+    "deck": "Работа и переговоры",
+    "definition": "To achieve substantial progress in an area or gain share in a market.",
+    "examples": [
+      "The company made significant inroads into the European market."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "3f7bdf763cd809",
+    "term": "to plough cash into something",
+    "ipa": "/ˌplaʊ ˈkæʃ ˈɪntuː/",
+    "ru": "вкладывать (вливать) крупные деньги в",
+    "deck": "Работа и переговоры",
+    "definition": "To invest large amounts of money in a project or activity.",
+    "examples": [
+      "The firm is ploughing cash into research."
+    ],
+    "note": "British spelling plough; American plow.",
+    "source": "user-file",
+    "initialStatus": "новая"
+  },
+  {
+    "id": "186f35ec26340b",
+    "term": "to raise serious concerns",
+    "ipa": "/reɪz ˈsɪəriəs kənˈsɜːnz/",
+    "ru": "вызывать серьёзные опасения; поднимать серьёзные вопросы",
+    "deck": "Работа и переговоры",
+    "definition": "To cause significant worry or bring important problems to public attention.",
+    "examples": [
+      "The proposal raised serious concerns about privacy."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "1e43b0662e3168",
+    "term": "to remain accountable (for something)",
+    "ipa": "/rɪˈmeɪn əˈkaʊntəbl/",
+    "ru": "оставаться ответственным, нести ответственность",
+    "deck": "Работа и переговоры",
+    "definition": "To continue being responsible and answerable for something.",
+    "examples": [
+      "Senior managers remain accountable for the decision."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "fea637f5dbbb92",
+    "term": "to scramble to catch up",
+    "ipa": "/ˈskræmbl tə kætʃ ˈʌp/",
+    "ru": "в спешке пытаться догнать (наверстать)",
+    "deck": "Работа и переговоры",
+    "definition": "To hurry and work hard to reach the level of someone who is ahead.",
+    "examples": [
+      "Smaller firms are scrambling to catch up."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "56c61bc006d0f6",
+    "term": "to touch base (with someone)",
+    "ipa": "/tʌtʃ ˈbeɪs/",
+    "ru": "созвониться/связаться, чтобы свериться",
+    "deck": "Работа и переговоры",
+    "definition": "To make brief contact with someone to exchange updates or coordinate.",
+    "examples": [
+      "Let's touch base after the meeting."
+    ],
+    "note": "Informal business English; touch base with someone.",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "9f92bfb43dd3c9",
+    "term": "a brain–computer interface (BCI)",
+    "ipa": "/ə ˌbreɪn kəmˈpjuːtər ˈɪntəfeɪs/",
+    "ru": "нейрокомпьютерный интерфейс, интерфейс «мозг — компьютер» (ИМК)",
+    "deck": "Технологии и наука",
+    "definition": "A system that enables direct communication between the brain and an electronic device.",
+    "examples": [
+      "Researchers developed a brain–computer interface for communication."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "a1d1f92c5ffbe8",
+    "term": "a high degree of autonomy",
+    "ipa": "/ə ˌhaɪ dɪˈɡriː əv ɔːˈtɒnəmi/",
+    "ru": "высокая степень самостоятельности / автономности",
+    "deck": "Технологии и наука",
+    "definition": "A substantial amount of freedom to act or make decisions independently.",
+    "examples": [
+      "The robot operates with a high degree of autonomy."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "bc77e3180373af",
+    "term": "a nuclear submarine",
+    "ipa": "/ə ˌnjuːkliə ˌsʌbməˈriːn/",
+    "ru": "атомная подводная лодка, атомная подлодка (АПЛ)",
+    "deck": "Технологии и наука",
+    "definition": "A military underwater vessel powered by a nuclear reactor.",
+    "examples": [
+      "A nuclear submarine can remain submerged for long periods."
+    ],
+    "note": "Nuclear refers to propulsion, not necessarily to weapons.",
+    "source": "user-file",
+    "initialStatus": "новая"
+  },
+  {
+    "id": "393ded80d00600",
+    "term": "to deploy AI tools",
+    "ipa": "/dɪˈplɔɪ ˌeɪ ˈaɪ tuːlz/",
+    "ru": "внедрять / применять инструменты ИИ",
+    "deck": "Технологии и наука",
+    "definition": "To put artificial-intelligence applications into practical use.",
+    "examples": [
+      "The firm deployed AI tools to review contracts."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "26d73a99440f0c",
+    "term": "to embrace new technology",
+    "ipa": "/ɪmˈbreɪs ˌnjuː tekˈnɒlədʒi/",
+    "ru": "охотно принимать / внедрять новые технологии",
+    "deck": "Технологии и наука",
+    "definition": "To accept and actively adopt recently developed technical methods or devices.",
+    "examples": [
+      "Smaller businesses are starting to embrace new technology."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "c1662ecf2ccd1c",
+    "term": "to profoundly accelerate something",
+    "ipa": "/prəˈfaʊndli əkˈseləreɪt/",
+    "ru": "кардинально / значительно ускорить",
+    "deck": "Технологии и наука",
+    "definition": "To make a process happen much faster to a substantial degree.",
+    "examples": [
+      "Better computing power could profoundly accelerate discovery."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "c4bc6f53799b62",
+    "term": "to train on vast amounts of data",
+    "ipa": "/treɪn ɒn ˌvɑːst əˈmaʊnts əv ˈdeɪtə/",
+    "ru": "обучаться на огромных объёмах данных",
+    "deck": "Технологии и наука",
+    "definition": "To develop a model using extremely large datasets as training material.",
+    "examples": [
+      "The system was trained on vast amounts of data."
+    ],
+    "note": "An AI model is trained on data; people train with materials.",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "863dadfb792e16",
+    "term": "an operating theatre",
+    "ipa": "/ən ˈɒpəreɪtɪŋ ˌθɪətə/",
+    "ru": "операционная",
+    "deck": "Здоровье",
+    "definition": "A hospital room specially equipped for surgical operations.",
+    "examples": [
+      "The patient was taken to the operating theatre."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "c6cf7e1e11fcec",
+    "term": "a bumper plate",
+    "ipa": "/ə ˈbʌmpə pleɪt/",
+    "ru": "бамперный диск (обрезиненный блин для штанги)",
+    "deck": "Спорт",
+    "definition": "A rubber-coated weight disc designed to be safely dropped during lifting.",
+    "examples": [
+      "Use a bumper plate when practising Olympic lifts."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "badb20bfa70fd3",
+    "term": "to load the bar",
+    "ipa": "/ləʊd ðə ˈbɑː/",
+    "ru": "навешивать блины на штангу (гриф)",
+    "deck": "Спорт",
+    "definition": "To put weight plates onto a barbell before an exercise.",
+    "examples": [
+      "Load the bar with another ten kilos."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "158d553fc9f0cd",
+    "term": "to push the pace",
+    "ipa": "/pʊʃ ðə ˈpeɪs/",
+    "ru": "взвинчивать / наращивать темп, давить темпом",
+    "deck": "Спорт",
+    "definition": "To increase the speed or intensity of an activity or competition.",
+    "examples": [
+      "The runners pushed the pace in the final kilometre."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "новая"
+  },
+  {
+    "id": "934bf05f24691e",
+    "term": "mandatory disclosure",
+    "ipa": "/ˈmændətəri dɪsˈkləʊʒə/",
+    "ru": "обязательное раскрытие (информации)",
+    "deck": "Право",
+    "definition": "A legal requirement to make specified information available to others.",
+    "examples": [
+      "The regulations impose mandatory disclosure of certain risks."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "7d26d2bcbed6be",
+    "term": "to face disciplinary action",
+    "ipa": "/feɪs ˌdɪsəˈplɪnəri ˈækʃn/",
+    "ru": "подвергнуться дисциплинарному взысканию",
+    "deck": "Право",
+    "definition": "To be at risk of formal punishment at work for breaking rules.",
+    "examples": [
+      "An employee may face disciplinary action for serious misconduct."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "59b77cb9849b60",
+    "term": "to prompt regulators to step in",
+    "ipa": "/prɒmpt ˈreɡjuleɪtəz tə step ˈɪn/",
+    "ru": "побудить регуляторов вмешаться",
+    "deck": "Право",
+    "definition": "To cause government supervisors to intervene in a situation.",
+    "examples": [
+      "The incident prompted regulators to step in."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "fae8eef1f99701",
+    "term": "to reach court",
+    "ipa": "/riːtʃ ˈkɔːt/",
+    "ru": "дойти до суда",
+    "deck": "Право",
+    "definition": "For a dispute or case to come before a court for consideration.",
+    "examples": [
+      "The dispute eventually reached court."
+    ],
+    "note": "Also common: the case went to court.",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "99bf8c357619e7",
+    "term": "to undermine public trust",
+    "ipa": "/ˌʌndəˈmaɪn ˌpʌblɪk ˈtrʌst/",
+    "ru": "подрывать доверие общества",
+    "deck": "Право",
+    "definition": "To weaken people's confidence in institutions or authorities.",
+    "examples": [
+      "The scandal undermined public trust in the regulator."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "454c707cbac7a5",
+    "term": "to widen access to justice",
+    "ipa": "/ˈwaɪdn ˈækses tə ˈdʒʌstɪs/",
+    "ru": "расширить доступ к правосудию",
+    "deck": "Право",
+    "definition": "To make courts and legal remedies more accessible to people.",
+    "examples": [
+      "The reforms aim to widen access to justice."
+    ],
+    "note": "",
+    "source": "user-file",
+    "initialStatus": "повторение"
+  },
+  {
+    "id": "80f63c373515a4",
+    "term": "a pang of shame",
+    "ipa": "/ə ˌpæŋ əv ˈʃeɪm/",
+    "ru": "укол стыда",
+    "deck": "Повседневные",
+    "definition": "A sudden, sharp feeling of embarrassment or guilt.",
+    "examples": [
+      "She felt a pang of shame when she remembered what she had said."
+    ],
+    "note": "Common: to feel a pang of shame; also a pang of guilt / regret.",
+    "source": "conversation",
+    "initialStatus": "добавлено в чате",
+    "historicalRatings": {
+      "definitionToExpression": "Easy",
+      "expressionToMeaning": "Easy",
+      "date": "2026-11-10",
+      "source": "self-reported"
+    }
+  },
+  {
+    "id": "1deb0556a2ec87",
+    "term": "to put effort into something",
+    "ipa": "/tə ˌpʊt ˈefət ˌɪntə ˈsʌmθɪŋ/",
+    "ru": "прикладывать усилия",
+    "deck": "Повседневные",
+    "definition": "To spend time and energy trying to achieve or improve something.",
+    "examples": [
+      "She put a lot of effort into improving her English."
+    ],
+    "note": "put effort into + noun / -ing.",
+    "source": "conversation",
+    "initialStatus": "добавлено в чате"
+  },
+  {
+    "id": "e62139d138549b",
+    "term": "to pan out",
+    "ipa": "/tə ˌpæn ˈaʊt/",
+    "ru": "сложиться, получиться",
+    "deck": "Повседневные",
+    "definition": "To turn out or develop in a particular way.",
+    "examples": [
+      "Things did not pan out as we had hoped."
+    ],
+    "note": "",
+    "source": "conversation",
+    "initialStatus": "добавлено в чате",
+    "historicalRatings": {
+      "definitionToExpression": "Easy",
+      "expressionToMeaning": "Easy",
+      "date": "2026-11-10",
+      "source": "self-reported"
+    }
+  },
+  {
+    "id": "acc6eca1861d0a",
+    "term": "to be reluctant to do something",
+    "ipa": "/tə bi rɪˈlʌktənt tə duː ˈsʌmθɪŋ/",
+    "ru": "неохотно делать что-либо",
+    "deck": "Повседневные",
+    "definition": "To feel hesitant or unwilling to do something.",
+    "examples": [
+      "He was reluctant to accept the offer."
+    ],
+    "note": "be reluctant to + infinitive; it does not necessarily mean refusal.",
+    "source": "conversation",
+    "initialStatus": "добавлено в чате",
+    "historicalRatings": {
+      "definitionToExpression": "Good",
+      "expressionToMeaning": "Easy",
+      "date": "2026-11-10",
+      "source": "self-reported"
+    }
+  },
+  {
+    "id": "48f303fbb7eeb5",
+    "term": "to face emotional fallout",
+    "ipa": "/tə ˌfeɪs ɪˌməʊʃənəl ˈfɔːlaʊt/",
+    "ru": "столкнуться с эмоциональными последствиями",
+    "deck": "Повседневные",
+    "definition": "To deal with distressing psychological consequences after an event.",
+    "examples": [
+      "She faced the emotional fallout of losing her job."
+    ],
+    "note": "In a specific context, often: face the emotional fallout of/from something.",
+    "source": "conversation",
+    "initialStatus": "добавлено в чате",
+    "historicalRatings": {
+      "definitionToExpression": "Easy",
+      "expressionToMeaning": "Good",
+      "date": "2026-11-10",
+      "source": "self-reported"
+    }
+  },
+  {
+    "id": "5fe853ffc1a0cc",
+    "term": "to swallow your pride",
+    "ipa": "/tə ˌswɒləʊ jɔː ˈpraɪd/",
+    "ru": "переступить через гордость",
+    "deck": "Повседневные",
+    "definition": "To set aside pride to do something necessary but uncomfortable.",
+    "examples": [
+      "He swallowed his pride and apologised."
+    ],
+    "note": "",
+    "source": "conversation",
+    "initialStatus": "добавлено в чате",
+    "historicalRatings": {
+      "definitionToExpression": "Easy",
+      "expressionToMeaning": "Easy",
+      "date": "2026-11-10",
+      "source": "self-reported"
+    }
+  },
+  {
+    "id": "c7687c45646b3d",
+    "term": "to switch gears",
+    "ipa": "/tə ˌswɪtʃ ˈɡɪəz/",
+    "ru": "сменить направление",
+    "deck": "Работа и переговоры",
+    "definition": "To change your focus or approach to something.",
+    "examples": [
+      "Let’s switch gears and discuss the budget."
+    ],
+    "note": "Especially common in American English; British change gear is also used.",
+    "source": "conversation",
+    "initialStatus": "добавлено в чате"
+  }
+]
