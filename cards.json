@@ -1009,5 +1009,20 @@
     "note": "Usually: strike a bargain with someone; strike a bargain over/on something. More formal than make a deal.",
     "source": "chatgpt-confirmed",
     "initialStatus": "новая"
+  },
+  {
+    "id": "phrase-come-to-terms-with-20261110",
+    "term": "to come to terms with something",
+    "ipa": "/tə ˌkʌm tə ˈtɜːmz wɪð ˌsʌmθɪŋ/",
+    "ru": "смириться с чем-либо; принять неприятную действительность",
+    "deck": "Повседневные",
+    "definition": "To gradually accept and learn to deal with a difficult or unpleasant situation that cannot be changed.",
+    "examples": [
+      "It took him months to come to terms with losing his job.",
+      "She is still struggling to come to terms with the end of the relationship."
+    ],
+    "note": "Often used with loss, failure, reality, or the fact that…; implies gradual psychological acceptance, not merely agreement.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая"
   }
 ]
