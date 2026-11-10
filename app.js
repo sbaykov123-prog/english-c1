@@ -123,4 +123,27 @@ document.addEventListener('click',e=>{const el=e.target.closest('[data-view],[da
 document.addEventListener('submit',e=>{if(e.target.id==='cardForm'){e.preventDefault();saveCard(e.target)}else if(e.target.id==='cardsImportForm'){e.preventDefault();importCardsText($('#cardsImportText').value)}});
 document.addEventListener('change',e=>{if(e.target.id==='backupInput')importBackup(e.target.files[0]);if(e.target.id==='cardsImportFile'){const file=e.target.files[0];if(file)file.text().then(importCardsText).catch(err=>showImportResult('Не удалось прочитать файл.',true))}if(e.target.id==='deckSelect'){filterDeck=e.target.value;render()}});
 document.addEventListener('input',e=>{if(e.target.id==='searchTerm'){filterText=e.target.value;$('#listCards').innerHTML=state.cards.filter(c=>(filterDeck==='Все'||c.deck===filterDeck)&&`${c.term} ${c.ru} ${c.definition}`.toLowerCase().includes(filterText.toLowerCase())).map(cardRow).join('')}});
-(async function init(){try{ySync=createYandexSync({getState:()=>structuredClone(state),applyState:s=>{state=s;localStorage.setItem(STORAGE_KEY,JSON.stringify(state));render()},onChanged:()=>render()});await ySync.callback();const r=await fetch('./cards.json');if(!r.ok)throw Error('cards.json');seed=await r.json();let saved;try{saved=JSON.parse(localStorage.getItem(STORAGE_KEY))}catch{}state=saved?.version===1&&Array.isArray(saved.cards)?saved:defaultState();if(!saved){state.cards=seed;persist()}else{const ids=new Set(state.cards.map(c=>c.id));for(const c of seed)if(!ids.has(c.id)&&!state.cards.some(x=>x.term.toLowerCase()===c.term.toLowerCase()))state.cards.push(c);persist()}render();if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js').catch(()=>{})}catch(e){$('#app').innerHTML=`<div class="wrap panel"><h2>Не удалось загрузить приложение</h2><p>Открой его через локальный HTTP-сервер или опубликованный HTTPS-сайт, а не напрямую как файл.</p><code>${esc(e.message)}</code></div>`}})();
+// Fetch the public catalogue freshly; merge by stable id/normalized term without touching review progress.
+let catalogueCheckAt=0,catalogueCheckRunning=false;
+async function refreshCatalogue(){
+  if(!state||catalogueCheckRunning||Date.now()-catalogueCheckAt<30000)return;
+  catalogueCheckAt=Date.now();catalogueCheckRunning=true;
+  try{
+    const response=await fetch('./cards.json?refresh='+Date.now(),{cache:'no-store'});
+    if(!response.ok)throw Error('Catalogue HTTP '+response.status);
+    const incoming=await response.json();
+    if(!Array.isArray(incoming))throw Error('Unexpected catalogue format');
+    const ids=new Set(state.cards.map(c=>c.id));
+    const terms=new Set(state.cards.map(c=>normTerm(c.term)));
+    let added=0;
+    for(const card of incoming){
+      if(!card||!card.id||!card.term||ids.has(card.id)||terms.has(normTerm(card.term)))continue;
+      state.cards.push(card);ids.add(card.id);terms.add(normTerm(card.term));added++;
+    }
+    if(added){persist();render()}
+  }catch(error){console.warn('Catalogue refresh unavailable; local progress remains intact',error)}
+  finally{catalogueCheckRunning=false}
+}
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshCatalogue()});
+window.addEventListener('focus',()=>refreshCatalogue());
+(async function init(){try{ySync=createYandexSync({getState:()=>structuredClone(state),applyState:s=>{state=s;localStorage.setItem(STORAGE_KEY,JSON.stringify(state));render()},onChanged:()=>render()});await ySync.callback();const r=await fetch('./cards.json?refresh='+Date.now(),{cache:'no-store'});if(!r.ok)throw Error('cards.json');seed=await r.json();let saved;try{saved=JSON.parse(localStorage.getItem(STORAGE_KEY))}catch{}state=saved?.version===1&&Array.isArray(saved.cards)?saved:defaultState();if(!saved){state.cards=seed;persist()}else{const ids=new Set(state.cards.map(c=>c.id));for(const c of seed)if(!ids.has(c.id)&&!state.cards.some(x=>x.term.toLowerCase()===c.term.toLowerCase()))state.cards.push(c);persist()}render();if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js').catch(()=>{})}catch(e){$('#app').innerHTML=`<div class="wrap panel"><h2>Не удалось загрузить приложение</h2><p>Открой его через локальный HTTP-сервер или опубликованный HTTPS-сайт, а не напрямую как файл.</p><code>${esc(e.message)}</code></div>`}})();
