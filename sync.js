@@ -1,6 +1,7 @@
 /* English C1: experimental, serverless Yandex Disk sync. No OAuth tokens in persistent storage. */
 const API='https://cloud-api.yandex.net/v1/disk';
 const META='english-c1-yandex-client-id';
+const BRIDGE='english-c1-yandex-bridge-url';
 const DEV='english-c1-yandex-device-id';
 const PKCE='english-c1-oauth-pkce';
 const textSafe=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -52,11 +53,14 @@ export function createYandexSync({getState,applyState,onChanged}){
  const deviceId=(()=>{let x=localStorage.getItem(DEV);if(!x){x=crypto.randomUUID();localStorage.setItem(DEV,x)}return x})();
  const filename=`english-c1-sync-${deviceId}.json`;
  const clientId=()=>localStorage.getItem(META)||'';
+ const bridgeUrl=()=>localStorage.getItem(BRIDGE)||'';
+ function validBridge(raw){try{const u=new URL(raw);return u.protocol==='https:'&&u.hostname.endsWith('.workers.dev')&&!u.username&&!u.password&&!u.port&&u.pathname==='/' }catch{return false}}
  function panel(){return `<section class="panel"><h3>Яндекс Диск · синхронизация (тестовая версия)</h3><p class="mini muted">Папка приложения на Диске. Каждое устройство хранит отдельный файл: это защищает от перезаписи чужих ответов. Токен доступа хранится только до закрытия вкладки.</p>
  <label class="fieldlabel">Client ID приложения Яндекс OAuth<input id="yaClientId" class="field" autocomplete="off" spellcheck="false" value="${textSafe(clientId())}" placeholder="Вставь только Client ID — не секретный ключ"></label>
+ <label class="fieldlabel">Адрес защищённого обработчика Cloudflare Workers<input id="yaBridgeUrl" class="field" autocomplete="off" spellcheck="false" value="${textSafe(bridgeUrl())}" placeholder="https://english-c1-sync.имя.workers.dev/"></label>
  <div class="actions"><button class="secondary" data-yasave>Сохранить ID</button><button class="primary" data-yalogin>${token?'Подключено':'Войти через Яндекс'}</button><button class="secondary" data-yasync ${token&&!busy?'':'disabled'}>Синхронизировать</button></div>
  <p id="yaStatus" class="notice" role="status">${textSafe(lastMessage)}</p>
- <p class="mini muted">Авторизация: OAuth Authorization Code + PKCE. Без серверов, платной подписки и хранения Client Secret. Автосинхронизация работает при открытом приложении после входа. Если браузер Яндекса блокирует запросы CORS, появится ошибка; данные останутся локальными.</p>
+ <p class="mini muted">Яндекс OAuth с PKCE. Токен остаётся в браузере; обработчик получает только временные URL загрузки/скачивания файлов. Для работы необходим бесплатный Cloudflare Worker. История не публикуется в GitHub.</p>
  <button class="ghost" data-yadisconnect>Отключить сессию</button></section>`}
  function show(msg){lastMessage=msg;const node=document.querySelector('#yaStatus');if(node)node.textContent=msg;}
  function dirty(){if(!token||busy)return;clearTimeout(nextTimer);nextTimer=setTimeout(()=>sync().catch(()=>{}),12000)}
@@ -86,8 +90,14 @@ export function createYandexSync({getState,applyState,onChanged}){
  async function api(url,options={}){const r=await fetch(url,{...options,headers:{Authorization:`OAuth ${token}`,...(options.headers||{})},cache:'no-store'});if(!r.ok){let details='';try{details=(await r.text()).slice(0,180)}catch{};throw new Error('API '+r.status+' '+details)}return r.json()}
  const resource=(path)=>API+'/resources?'+new URLSearchParams({path});
  async function list(){try{const r=await api(resource('app:/')+'&limit=1000');return (r._embedded?.items||[]).filter(f=>f.type==='file'&&/^english-c1-sync-[a-f0-9-]+\.json$/.test(f.name)).slice(0,200)}catch(e){if(/API 404/.test(e.message))return [];throw e}}
- async function download(name){const meta=await api(API+'/resources/download?'+new URLSearchParams({path:'app:/'+name}));const response=await fetch(meta.href,{cache:'no-store'});if(!response.ok)throw new Error('Не загрузить '+name+' HTTP '+response.status);const str=await response.text();if(str.length>12000000)throw new Error('Файл синхронизации слишком большой');const result=JSON.parse(str);if(!validate(result))throw new Error('Повреждена копия '+name);return result;}
- async function upload(s){const meta=await api(API+'/resources/upload?'+new URLSearchParams({path:'app:/'+filename,overwrite:'true'}));const response=await fetch(meta.href,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(s)});if(!response.ok)throw new Error('Загрузка HTTP '+response.status)}
+ async function transfer(operation,url,content){
+  const address=bridgeUrl();if(!validBridge(address))throw new Error('Укажи адрес Cloudflare Worker в настройках и нажми «Сохранить».');
+  const response=await fetch(address,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({operation,url,...(operation==='upload'?{content}:{})}),cache:'no-store'});
+  if(!response.ok)throw new Error('Обработчик загрузки: HTTP '+response.status);
+  return operation==='download'?response.json():null;
+ }
+ async function download(name){const meta=await api(API+'/resources/download?'+new URLSearchParams({path:'app:/'+name}));const result=await transfer('download',meta.href);if(!validate(result))throw new Error('Повреждена копия '+name);return result;}
+ async function upload(s){const meta=await api(API+'/resources/upload?'+new URLSearchParams({path:'app:/'+filename,overwrite:'true'}));await transfer('upload',meta.href,s)}
  async function sync(){if(!token||busy)return;busy=true;show('Синхронизация…');
  try{const listFiles=await list();const remote=[];for(const item of listFiles)remote.push(await download(item.name));
   const local=getState();const merged=mergeSnapshots([local,...remote]);
@@ -95,7 +105,7 @@ export function createYandexSync({getState,applyState,onChanged}){
   applyState(merged);await upload(merged);status='online';show(`Синхронизировано: ${merged.cards.length} выражений, ${merged.history.length} ответов, ${remote.length} удалённых копий. ${new Date().toLocaleTimeString('ru-RU')}`);
  }catch(e){status='error';show('Синхронизация не выполнена; локальная база сохранена. '+e.message)}finally{busy=false}}
  document.addEventListener('click',e=>{const b=e.target.closest('[data-yasave],[data-yalogin],[data-yasync],[data-yadisconnect]');if(!b)return;
-  if(b.hasAttribute('data-yasave')){const v=(document.querySelector('#yaClientId')?.value||'').trim();if(!/^[a-zA-Z0-9_-]{8,160}$/.test(v)){show('Неверный Client ID');return}localStorage.setItem(META,v);show('Client ID сохранён. Это публичный идентификатор, не секрет.');}
+  if(b.hasAttribute('data-yasave')){const v=(document.querySelector('#yaClientId')?.value||'').trim();const u=(document.querySelector('#yaBridgeUrl')?.value||'').trim();if(!/^[a-zA-Z0-9_-]{8,160}$/.test(v)){show('Неверный Client ID');return}if(!validBridge(u)){show('Введи полный адрес HTTPS Cloudflare Worker, оканчивающийся на workers.dev/');return}localStorage.setItem(META,v);localStorage.setItem(BRIDGE,u);show('Настройки подключения сохранены.');}
   if(b.hasAttribute('data-yalogin'))login().catch(e=>show(e.message));
   if(b.hasAttribute('data-yasync'))sync();
   if(b.hasAttribute('data-yadisconnect')){token=null;clearTimeout(nextTimer);status='off';show('Отключено. Данные на устройстве не удалены.');}
