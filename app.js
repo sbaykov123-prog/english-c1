@@ -44,19 +44,16 @@ function home(){const c=getCounts(),decks=[...new Set(state.cards.map(x=>x.deck)
 // Keep two directions of the same expression apart by at least six OTHER unique expressions.
 // When the selected deck is too small, leave the other direction for a future session.
 function spaceDirections(items,minOtherExpressions=6){
- const pending=[...items],result=[];
- while(pending.length){
-  const next=pending.findIndex(item=>{
-   let last=-1;
-   for(let i=result.length-1;i>=0;i--)if(result[i].card.id===item.card.id){last=i;break}
-   if(last<0)return true;
-   const intervening=new Set(result.slice(last+1).map(x=>x.card.id));
-   return intervening.size>=minOtherExpressions;
-  });
-  if(next<0)break;
-  result.push(pending.splice(next,1)[0]);
+ const first=[],second=[],seen=new Set();
+ for(const item of items){
+  if(seen.has(item.card.id))second.push(item);
+  else{seen.add(item.card.id);first.push(item)}
  }
- return result;
+ // With fewer than seven distinct expressions there cannot be six intervening
+ // expressions: leave the reverse side due/unseen for a later session.
+ if(seen.size<=minOtherExpressions)return first;
+ // The matching order keeps at least (unique expressions - 1) intervening cards.
+ return [...first,...second];
 }
 function chooseSession(deck='Все'){
  let items=allItems().filter(x=>deck==='Все'||x.card.deck===deck),t=now();
