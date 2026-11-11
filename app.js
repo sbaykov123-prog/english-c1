@@ -7,7 +7,7 @@ const now=()=>Date.now();
 const dayStart=(t=now())=>{const d=new Date(t);d.setHours(0,0,0,0);return d.getTime()};
 const dateText=t=>new Date(t).toLocaleDateString('ru-RU',{day:'numeric',month:'short'});
 const directionLabel=d=>d===0?'Определение → фраза':'Фраза → значение';
-let seed=[],state=null,view='home',session=null,filterDeck='Все',filterText='',editId=null;
+let seed=[],state=null,view='home',session=null,filterDeck='Все',filterText='',editId=null,editReturn='browse';
 const defaultState=()=>({version:1,cards:[],progress:{},history:[],preferences:{dailyNew:5,dailyReview:25},createdAt:now()});
 function persist(){localStorage.setItem(STORAGE_KEY,JSON.stringify(state))}
 function key(id,dir){return `${id}:${dir}`}
@@ -82,7 +82,8 @@ function study(){const x=session.queue[session.index],c=x.card,p=progress(c.id,x
  ${session.retrain?`<div class="info"><b>Повторное изучение</b><div class="mini">Прочитай объяснение и примеры. Затем оцени повторную попытку.</div></div>`:''}
  <section class="flash" data-flip><div class="kind">${session.revealed?'BACK · ANSWER':x.dir===0?'FRONT · DEFINITION → EXPRESSION':'FRONT · EXPRESSION → MEANING'}</div>${session.revealed?back:`<div class="definition">${esc(front)}</div><div class="fliphelp">Вспомни мысленно или вслух, затем открой ответ</div>`}${incomplete&&!session.revealed?'<div class="notice">Для этой записи английское определение пока не заполнено; использован перевод.</div>':''}</section>
  ${session.revealed?`<div class="rategrid">${['Снова','Трудно','Хорошо','Легко'].map((n,i)=>`<button class="rate ${['again','hard','good','easy'][i]}" data-rate="${i}">${n}<span class="days">${i===0?'10 мин':i===1?'раньше':i===2?'обычно':'позже'}</span></button>`).join('')}</div>`:`<button class="primary wide" data-flip>Показать ответ</button>`}
- <p class="notice" style="text-align:center">${directionLabel(x.dir)} · прогресс сохраняется на устройстве</p>
+ <div class="actions"><button class="secondary wide" data-edit-current>✎ Редактировать карточку</button></div>
+  <p class="notice" style="text-align:center">${directionLabel(x.dir)} · прогресс сохраняется на устройстве</p>
  <button class="ghost wide" data-end>Закончить занятие</button>`)}
 function rate(r){const x=session.queue[session.index];schedule(x.card,x.dir,r);session.sessionHistory.push({term:x.card.term,dir:x.dir,rating:r});
  // A failed answer is due again after ten minutes, not immediately in this lesson.
@@ -130,8 +131,41 @@ function importCardsText(value){try{const result=importCardsPayload(JSON.parse(v
 function saveJSONFile(data,filename){const content=JSON.stringify(data,null,2),blob=new Blob([content],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)}
 function downloadImportTemplate(){saveJSONFile({cards:[{term:'to ...',ipa:'/…/',definition:'To ...',examples:['She ...','They ...'],ru:'Перевод',note:'Usage: ...',deck:'Повседневные'}]},'english-c1-import-template.json')}
 function editCard(){const c=editId?state.cards.find(x=>x.id===editId):null;const formField=(label,name,value,textarea=false)=>`<label class="fieldlabel">${label}${textarea?`<textarea class="field" name="${name}">${esc(value||'')}</textarea>`:`<input class="field" name="${name}" value="${esc(value||'')}">`}</label>`;
- shell(`<section class="panel"><h1>${c?'Редактирование':'Новая карточка'}</h1><form id="cardForm" class="formgrid">${formField('Выражение','term',c?.term)}${formField('Британская IPA','ipa',c?.ipa)}${formField('Перевод','ru',c?.ru)}${formField('English definition (without the expression)','definition',c?.definition,true)}${formField('Example 1','ex1',c?.examples?.[0])}${formField('Example 2','ex2',c?.examples?.[1])}${formField('Usage notes','note',c?.note,true)}${formField('Колода','deck',c?.deck||'Повседневные')}<button class="primary" type="submit">Сохранить</button><button class="secondary" type="button" data-view="browse">Отмена</button></form></section>`)}
-function saveCard(form){const f=new FormData(form),term=String(f.get('term')||'').trim();if(!term)return alert('Укажи выражение');const duplicate=state.cards.find(x=>x.term.toLowerCase()===term.toLowerCase()&&x.id!==editId);if(duplicate)return alert('Такое выражение уже есть в словаре');const c={id:editId||crypto.randomUUID(),term,ipa:String(f.get('ipa')||''),ru:String(f.get('ru')||''),definition:String(f.get('definition')||''),examples:[f.get('ex1'),f.get('ex2')].map(String).map(x=>x.trim()).filter(Boolean),note:String(f.get('note')||''),deck:String(f.get('deck')||'Повседневные').trim()||'Повседневные',source:'custom'};if(editId){state.cards=state.cards.map(x=>x.id===editId?{...x,...c}:x)}else state.cards.push(c);persist();editId=null;view='browse';render()}
+ shell(`<section class="panel"><h1>${c?'Редактирование':'Новая карточка'}</h1><form id="cardForm" class="formgrid">${formField('Выражение','term',c?.term)}${formField('Британская IPA','ipa',c?.ipa)}${formField('Перевод','ru',c?.ru)}${formField('English definition (without the expression)','definition',c?.definition,true)}${formField('Example 1','ex1',c?.examples?.[0])}${formField('Example 2','ex2',c?.examples?.[1])}${formField('Usage notes','note',c?.note,true)}${formField('Колода','deck',c?.deck||'Повседневные')}<button class="primary" type="submit">Сохранить</button><button class="secondary" type="button" data-cancel-edit>Отмена</button></form></section>`)}
+function saveCard(form){
+ const f=new FormData(form),term=String(f.get('term')||'').trim();
+ if(!term)return alert('Укажи выражение');
+ const duplicate=state.cards.find(x=>normTerm(x.term)===normTerm(term)&&x.id!==editId);
+ if(duplicate)return alert('Такое выражение уже есть в словаре');
+ const previous=editId?state.cards.find(x=>x.id===editId):null;
+ const c={
+  ...(previous||{}),id:editId||crypto.randomUUID(),
+  term,ipa:String(f.get('ipa')||'').trim(),ru:String(f.get('ru')||'').trim(),
+  definition:String(f.get('definition')||'').trim(),
+  examples:[f.get('ex1'),f.get('ex2')].map(String).map(x=>x.trim()).filter(Boolean),
+  note:String(f.get('note')||'').trim(),
+  deck:String(f.get('deck')||'Повседневные').trim()||'Повседневные',
+  source:previous?.source||'custom',editedLocallyAt:now()
+ };
+ if(editId){
+  const index=state.cards.findIndex(x=>x.id===editId);
+  if(index<0)return alert('Карточка больше не найдена');
+  state.cards[index]=c;
+  // Active study queue holds card object references; replace them as well.
+  if(session)for(const item of session.queue)if(item.card.id===editId)item.card=c;
+ }else state.cards.push(c);
+ persist();editId=null;
+ view=editReturn==='study'&&session?'study':'browse';
+ editReturn='browse';render();
+}
+function openCardEditor(id,returnTo='browse'){
+ if(!state.cards.some(c=>c.id===id))return alert('Карточка не найдена');
+ editId=id;editReturn=returnTo;view='edit';render();
+}
+function cancelCardEditor(){
+ editId=null;view=editReturn==='study'&&session?'study':'browse';
+ editReturn='browse';render();
+}
 function exportBackup(){saveJSONFile({...state,exportedAt:new Date().toISOString(),format:'english-c1-backup'},`english-c1-backup-${new Date().toISOString().slice(0,10)}.json`)}
 function settings(){shell(`<section class="panel"><h1>Настройки</h1><p class="muted">Прогресс хранится на этом устройстве. Для переноса между телефоном и компьютером используй JSON-копии и их безопасное объединение.</p><div class="formgrid"><label class="fieldlabel">Новых выражений за занятие<input class="field" id="dailyNew" inputmode="numeric" type="number" min="1" max="30" value="${state.preferences.dailyNew}"></label><label class="fieldlabel">Повторений за занятие<input class="field" id="dailyReview" inputmode="numeric" type="number" min="1" max="100" value="${state.preferences.dailyReview}"></label><button class="primary" data-save-settings>Сохранить настройки</button></div></section>
  <section class="panel"><h3>Прогресс между устройствами · GitHub + ChatGPT</h3><p class="mini muted">1. На каждом устройстве нажми «Экспорт JSON». 2. Пришли обе копии в чат ChatGPT для объединения и хранения в приватном репозитории GitHub. 3. Скачай общий JSON из чата. 4. На каждом устройстве нажми «Объединить JSON» и выбери этот файл.</p><p class="mini muted">Объединение добавляет недостающие ответы и карточки, не стирает новые результаты на устройстве. Прямой автоматической синхронизации без участия чата пока нет.</p><div class="actions"><button class="secondary" data-export>Экспорт JSON</button><button class="secondary" data-import>Объединить JSON</button></div><input type="file" id="backupInput" accept="application/json,.json" hidden><p class="notice warning">Перед импортом автоматически скачивается резервная копия текущей локальной базы. Храни её до проверки результата.</p></section>
@@ -149,7 +183,7 @@ function importBackup(file){
   alert('Готово. Словарь: '+state.cards.length+' выражений; история: '+state.history.length+' ответов. Текущая история сохранена.');
  }).catch(e=>alert('Ошибка объединения: '+e.message));
 }
-document.addEventListener('click',e=>{const el=e.target.closest('[data-view],[data-deck],[data-start],[data-flip],[data-rate],[data-end],[data-add],[data-edit],[data-export],[data-import],[data-template],[data-save-settings]');if(!el)return;if(el.hasAttribute('data-view')){view=el.dataset.view;session=null;render()}else if(el.hasAttribute('data-deck'))chooseSession(el.dataset.deck);else if(el.hasAttribute('data-start'))chooseSession();else if(el.hasAttribute('data-flip')){if(session){session.revealed=!session.revealed;render()}}else if(el.hasAttribute('data-rate'))rate(Number(el.dataset.rate));else if(el.hasAttribute('data-end')){view='summary';render()}else if(el.hasAttribute('data-add')){editId=null;view='edit';render()}else if(el.hasAttribute('data-edit')){editId=el.dataset.edit;view='edit';render()}else if(el.hasAttribute('data-export'))exportBackup();else if(el.hasAttribute('data-import'))$('#backupInput')?.click();else if(el.hasAttribute('data-template'))downloadImportTemplate();else if(el.hasAttribute('data-save-settings')){state.preferences.dailyNew=Math.max(1,Math.min(30,Number($('#dailyNew').value)||5));state.preferences.dailyReview=Math.max(1,Math.min(100,Number($('#dailyReview').value)||25));persist();render()}});
+document.addEventListener('click',e=>{const el=e.target.closest('[data-view],[data-deck],[data-start],[data-flip],[data-rate],[data-end],[data-add],[data-edit],[data-edit-current],[data-cancel-edit],[data-export],[data-import],[data-template],[data-save-settings]');if(!el)return;if(el.hasAttribute('data-view')){view=el.dataset.view;session=null;render()}else if(el.hasAttribute('data-deck'))chooseSession(el.dataset.deck);else if(el.hasAttribute('data-start'))chooseSession();else if(el.hasAttribute('data-flip')){if(session){session.revealed=!session.revealed;render()}}else if(el.hasAttribute('data-rate'))rate(Number(el.dataset.rate));else if(el.hasAttribute('data-end')){view='summary';render()}else if(el.hasAttribute('data-add')){editId=null;editReturn='browse';view='edit';render()}else if(el.hasAttribute('data-edit'))openCardEditor(el.dataset.edit);else if(el.hasAttribute('data-edit-current')){if(session)openCardEditor(session.queue[session.index].card.id,'study')}else if(el.hasAttribute('data-cancel-edit'))cancelCardEditor()else if(el.hasAttribute('data-export'))exportBackup();else if(el.hasAttribute('data-import'))$('#backupInput')?.click();else if(el.hasAttribute('data-template'))downloadImportTemplate();else if(el.hasAttribute('data-save-settings')){state.preferences.dailyNew=Math.max(1,Math.min(30,Number($('#dailyNew').value)||5));state.preferences.dailyReview=Math.max(1,Math.min(100,Number($('#dailyReview').value)||25));persist();render()}});
 document.addEventListener('submit',e=>{if(e.target.id==='cardForm'){e.preventDefault();saveCard(e.target)}else if(e.target.id==='cardsImportForm'){e.preventDefault();importCardsText($('#cardsImportText').value)}});
 document.addEventListener('change',e=>{if(e.target.id==='backupInput')importBackup(e.target.files[0]);if(e.target.id==='cardsImportFile'){const file=e.target.files[0];if(file)file.text().then(importCardsText).catch(err=>showImportResult('Не удалось прочитать файл.',true))}if(e.target.id==='deckSelect'){filterDeck=e.target.value;render()}});
 document.addEventListener('input',e=>{if(e.target.id==='searchTerm'){filterText=e.target.value;$('#listCards').innerHTML=state.cards.filter(c=>(filterDeck==='Все'||c.deck===filterDeck)&&`${c.term} ${c.ru} ${c.definition}`.toLowerCase().includes(filterText.toLowerCase())).map(cardRow).join('')}});
