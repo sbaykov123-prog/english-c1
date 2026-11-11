@@ -38,16 +38,33 @@ function shell(content){$('#app').innerHTML=`<main class="wrap"><div class="top"
 function filteredItems(){return allItems().filter(x=>filterDeck==='Все'||x.card.deck===filterDeck)}
 function home(){const c=getCounts(),decks=[...new Set(state.cards.map(x=>x.deck))],studied=new Set(state.history.map(x=>x.id)).size;
   shell(`<section class="panel hero"><h1>Твоя практика английского</h1><p class="muted">Двусторонние карточки · интервальные повторения · офлайн</p></section>
-  <section class="panel"><div class="counts"><div class="metric"><strong>${c.due}</strong><span>К повторению</span></div><div class="metric"><strong>${c.new}</strong><span>Не изучено, сторон</span></div><div class="metric"><strong>${studied}</strong><span>Выражений изучалось</span></div></div><br><div class="actions"><button class="primary" data-start="all">Начать занятие</button><button class="secondary" data-view="browse">Словарь</button></div><p class="notice">Новое: до ${state.preferences.dailyNew} выражений за занятие (каждое в двух направлениях). Повторение ранее изученного — в первую очередь.</p></section>
+  <section class="panel"><div class="counts"><div class="metric"><strong>${c.due}</strong><span>К повторению</span></div><div class="metric"><strong>${c.new}</strong><span>Не изучено, сторон</span></div><div class="metric"><strong>${studied}</strong><span>Выражений изучалось</span></div></div><br><div class="actions"><button class="primary" data-start="all">Начать занятие</button><button class="secondary" data-view="browse">Словарь</button></div><p class="notice">Новое: до ${state.preferences.dailyNew} выражений за занятие (каждое в двух направлениях). Повторение ранее изученного — в первую очередь. Два направления выражения не показываются подряд.</p></section>
   <div class="sectionrow"><h2>Тематические колоды</h2><span class="small muted">${decks.length}</span></div><section class="panel">${decks.map(d=>`<div class="deckrow"><div><div class="deckname">${esc(d)}</div><div class="muted small">${state.cards.filter(x=>x.deck===d).length} выражений</div></div><button class="secondary" data-deck="${esc(d)}">Учить</button></div>`).join('')}</section>
   <section class="panel"><b>Резервная копия</b><p class="mini muted">Экспортируй JSON, загрузи его в чат для объединения с прогрессом другого устройства или сохрани в приватном GitHub. В «Настройках» можно безопасно объединить файлы.</p><button class="secondary" data-export>Скачать резервную копию</button></section>`)}
+// Keep two directions of the same expression apart by at least six OTHER unique expressions.
+// When the selected deck is too small, leave the other direction for a future session.
+function spaceDirections(items,minOtherExpressions=6){
+ const pending=[...items],result=[];
+ while(pending.length){
+  const next=pending.findIndex(item=>{
+   let last=-1;
+   for(let i=result.length-1;i>=0;i--)if(result[i].card.id===item.card.id){last=i;break}
+   if(last<0)return true;
+   const intervening=new Set(result.slice(last+1).map(x=>x.card.id));
+   return intervening.size>=minOtherExpressions;
+  });
+  if(next<0)break;
+  result.push(pending.splice(next,1)[0]);
+ }
+ return result;
+}
 function chooseSession(deck='Все'){
  let items=allItems().filter(x=>deck==='Все'||x.card.deck===deck),t=now();
  let due=items.filter(x=>x.p&&x.p.due<=t).sort((a,b)=>a.p.due-b.p.due).slice(0,state.preferences.dailyReview);
  let newExpr=[],seen=new Set();
  for(const x of items.filter(x=>!x.p)){if(newExpr.length>=state.preferences.dailyNew)break;if(seen.has(x.card.id))continue;seen.add(x.card.id);newExpr.push(x.card)}
  let fresh=newExpr.flatMap(c=>[0,1].filter(dir=>!progress(c.id,dir)).map(dir=>({card:c,dir,p:null})));
- let queue=[...due,...fresh];
+ let queue=spaceDirections([...due,...fresh]);
  if(!queue.length){session=null;view='empty';render();return}
  session={queue,index:0,revealed:false,retrain:false,sessionHistory:[],deck};view='study';render();
 }
@@ -64,7 +81,7 @@ function study(){const x=session.queue[session.index],c=x.card,p=progress(c.id,x
  <p class="notice" style="text-align:center">${directionLabel(x.dir)} · прогресс сохраняется на устройстве</p>
  <button class="ghost wide" data-end>Закончить занятие</button>`)}
 function rate(r){const x=session.queue[session.index];schedule(x.card,x.dir,r);session.sessionHistory.push({term:x.card.term,dir:x.dir,rating:r});
- if(r===0){const repeats=session.queue.filter(v=>v.card.id===x.card.id&&v.dir===x.dir).length; if(repeats<3)session.queue.push({...x});}
+ // A failed answer is due again after ten minutes, not immediately in this lesson.
  session.index++;session.revealed=false;session.retrain=session.index<session.queue.length&&session.queue[session.index].p!==null&&session.sessionHistory.some(v=>v.term===session.queue[session.index].card.term&&v.dir===session.queue[session.index].dir&&v.rating===0);
  if(session.index>=session.queue.length)view='summary';render();}
 function summary(){const h=session?.sessionHistory??[];shell(`<section class="panel"><h1>Занятие завершено</h1><p class="muted">${h.length} ответов · ${new Set(h.map(x=>x.term)).size} выражений</p><div class="counts">${[{r:0,n:'Снова'},{r:2,n:'Хорошо'},{r:3,n:'Легко'}].map(y=>`<div class="metric"><strong>${h.filter(x=>x.rating===y.r).length}</strong><span>${y.n}</span></div>`).join('')}</div></section><section class="panel"><h3>Итоги по карточкам</h3>${h.map(x=>`<div class="deckrow"><span>${esc(x.term)}<br><small class="muted">${directionLabel(x.dir)}</small></span><b>${['Снова','Трудно','Хорошо','Легко'][x.rating]}</b></div>`).join('')}</section><button class="primary wide" data-view="home">На главную</button>`)}
@@ -114,7 +131,7 @@ function saveCard(form){const f=new FormData(form),term=String(f.get('term')||''
 function exportBackup(){saveJSONFile({...state,exportedAt:new Date().toISOString(),format:'english-c1-backup'},`english-c1-backup-${new Date().toISOString().slice(0,10)}.json`)}
 function settings(){shell(`<section class="panel"><h1>Настройки</h1><p class="muted">Прогресс хранится на этом устройстве. Для переноса между телефоном и компьютером используй JSON-копии и их безопасное объединение.</p><div class="formgrid"><label class="fieldlabel">Новых выражений за занятие<input class="field" id="dailyNew" inputmode="numeric" type="number" min="1" max="30" value="${state.preferences.dailyNew}"></label><label class="fieldlabel">Повторений за занятие<input class="field" id="dailyReview" inputmode="numeric" type="number" min="1" max="100" value="${state.preferences.dailyReview}"></label><button class="primary" data-save-settings>Сохранить настройки</button></div></section>
  <section class="panel"><h3>Прогресс между устройствами · GitHub + ChatGPT</h3><p class="mini muted">1. На каждом устройстве нажми «Экспорт JSON». 2. Пришли обе копии в чат ChatGPT для объединения и хранения в приватном репозитории GitHub. 3. Скачай общий JSON из чата. 4. На каждом устройстве нажми «Объединить JSON» и выбери этот файл.</p><p class="mini muted">Объединение добавляет недостающие ответы и карточки, не стирает новые результаты на устройстве. Прямой автоматической синхронизации без участия чата пока нет.</p><div class="actions"><button class="secondary" data-export>Экспорт JSON</button><button class="secondary" data-import>Объединить JSON</button></div><input type="file" id="backupInput" accept="application/json,.json" hidden><p class="notice warning">Перед импортом автоматически скачивается резервная копия текущей локальной базы. Храни её до проверки результата.</p></section>
- <section class="panel"><h3>О расписании</h3><p class="mini muted">Используется открытый адаптивный интервальный алгоритм, вдохновлённый SM-2. Это не официальная реализация FSRS. Направления карточки планируются независимо. При оценке «Снова» повтор включается в текущий урок и назначается проверка примерно через 10 минут.</p></section>`)}
+ <section class="panel"><h3>О расписании</h3><p class="mini muted">Используется открытый адаптивный интервальный алгоритм, вдохновлённый SM-2. Это не официальная реализация FSRS. Направления карточки планируются независимо. При оценке «Снова» повтор назначается примерно через 10 минут, но не вставляется сразу в этот урок. Два направления одного выражения разделяются минимум шестью другими уникальными выражениями; если колода короткая, второе направление остаётся для следующего занятия.</p></section>`)}
 function empty(){shell(`<section class="panel empty"><h2>На сегодня всё!</h2><p>Для выбранной колоды нет карточек к повторению или новых сторон.</p><button class="primary" data-view="home">На главную</button></section>`)}
 function render(){if(view==='home')home();else if(view==='study')study();else if(view==='summary')summary();else if(view==='browse')browse();else if(view==='settings')settings();else if(view==='edit')editCard();else if(view==='cardimport')cardImport();else empty()}
 function importBackup(file){
