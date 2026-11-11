@@ -57,6 +57,13 @@ function spaceDirections(items,minOtherExpressions=6){
 }
 function chooseSession(deck='Все'){
  let items=allItems().filter(x=>deck==='Все'||x.card.deck===deck),t=now();
+ // Short decks: wait at least 15 minutes between opposite directions even across lessons.
+ if(new Set(items.map(x=>x.card.id)).size<7){
+  items=items.filter(x=>{
+   const opposite=progress(x.card.id,1-x.dir);
+   return !opposite?.lastReviewed||t-opposite.lastReviewed>=15*60000;
+  });
+ }
  let due=items.filter(x=>x.p&&x.p.due<=t).sort((a,b)=>a.p.due-b.p.due).slice(0,state.preferences.dailyReview);
  let newExpr=[],seen=new Set();
  for(const x of items.filter(x=>!x.p)){if(newExpr.length>=state.preferences.dailyNew)break;if(seen.has(x.card.id))continue;seen.add(x.card.id);newExpr.push(x.card)}
@@ -128,7 +135,7 @@ function saveCard(form){const f=new FormData(form),term=String(f.get('term')||''
 function exportBackup(){saveJSONFile({...state,exportedAt:new Date().toISOString(),format:'english-c1-backup'},`english-c1-backup-${new Date().toISOString().slice(0,10)}.json`)}
 function settings(){shell(`<section class="panel"><h1>Настройки</h1><p class="muted">Прогресс хранится на этом устройстве. Для переноса между телефоном и компьютером используй JSON-копии и их безопасное объединение.</p><div class="formgrid"><label class="fieldlabel">Новых выражений за занятие<input class="field" id="dailyNew" inputmode="numeric" type="number" min="1" max="30" value="${state.preferences.dailyNew}"></label><label class="fieldlabel">Повторений за занятие<input class="field" id="dailyReview" inputmode="numeric" type="number" min="1" max="100" value="${state.preferences.dailyReview}"></label><button class="primary" data-save-settings>Сохранить настройки</button></div></section>
  <section class="panel"><h3>Прогресс между устройствами · GitHub + ChatGPT</h3><p class="mini muted">1. На каждом устройстве нажми «Экспорт JSON». 2. Пришли обе копии в чат ChatGPT для объединения и хранения в приватном репозитории GitHub. 3. Скачай общий JSON из чата. 4. На каждом устройстве нажми «Объединить JSON» и выбери этот файл.</p><p class="mini muted">Объединение добавляет недостающие ответы и карточки, не стирает новые результаты на устройстве. Прямой автоматической синхронизации без участия чата пока нет.</p><div class="actions"><button class="secondary" data-export>Экспорт JSON</button><button class="secondary" data-import>Объединить JSON</button></div><input type="file" id="backupInput" accept="application/json,.json" hidden><p class="notice warning">Перед импортом автоматически скачивается резервная копия текущей локальной базы. Храни её до проверки результата.</p></section>
- <section class="panel"><h3>О расписании</h3><p class="mini muted">Используется открытый адаптивный интервальный алгоритм, вдохновлённый SM-2. Это не официальная реализация FSRS. Направления карточки планируются независимо. При оценке «Снова» повтор назначается примерно через 10 минут, но не вставляется сразу в этот урок. Два направления одного выражения разделяются минимум шестью другими уникальными выражениями; если колода короткая, второе направление остаётся для следующего занятия.</p></section>`)}
+ <section class="panel"><h3>О расписании</h3><p class="mini muted">Используется открытый адаптивный интервальный алгоритм, вдохновлённый SM-2. Это не официальная реализация FSRS. Направления карточки планируются независимо. При оценке «Снова» повтор назначается примерно через 10 минут, но не вставляется сразу в этот урок. Два направления одного выражения разделяются минимум шестью другими уникальными выражениями; если колода короткая, второе направление остаётся для следующего занятия и доступно не ранее чем через 15 минут после первого.</p></section>`)}
 function empty(){shell(`<section class="panel empty"><h2>На сегодня всё!</h2><p>Для выбранной колоды нет карточек к повторению или новых сторон.</p><button class="primary" data-view="home">На главную</button></section>`)}
 function render(){if(view==='home')home();else if(view==='study')study();else if(view==='summary')summary();else if(view==='browse')browse();else if(view==='settings')settings();else if(view==='edit')editCard();else if(view==='cardimport')cardImport();else empty()}
 function importBackup(file){
