@@ -1024,5 +1024,35 @@
     "note": "Often used with loss, failure, reality, or the fact that…; implies gradual psychological acceptance, not merely agreement.",
     "source": "chatgpt-confirmed",
     "initialStatus": "новая"
+  },
+  {
+    "id": "phrase-see-through-deception-20261112",
+    "term": "to see through someone/something",
+    "ipa": "/tə ˌsiː ˈθruː ˌsʌmwʌn ˌsʌmθɪŋ/",
+    "ru": "раскусить кого-либо; распознать обман",
+    "deck": "Повседневные",
+    "definition": "To recognise that someone is being dishonest or that something is not what it appears to be.",
+    "examples": [
+      "She saw through his lies immediately.",
+      "I could see through his excuse from the start."
+    ],
+    "note": "see through someone or their lies/excuses — detect pretence or dishonesty; distinct from see something through (finish it).",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая"
+  },
+  {
+    "id": "phrase-see-something-through-20261112",
+    "term": "to see something through",
+    "ipa": "/tə ˌsiː ˌsʌmθɪŋ ˈθruː/",
+    "ru": "довести что-либо до конца, несмотря на трудности",
+    "deck": "Повседневные",
+    "definition": "To continue doing something until it is finished, despite difficulties.",
+    "examples": [
+      "Despite all the setbacks, she was determined to see the project through.",
+      "We promised to see the plan through to the end."
+    ],
+    "note": "Separable: see a project through / see it through; see something through to completion. Not the same as see through someone's lies.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая"
   }
 ]
