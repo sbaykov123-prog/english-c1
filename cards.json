@@ -1054,5 +1054,20 @@
     "note": "Separable: see a project through / see it through; see something through to completion. Not the same as see through someone's lies.",
     "source": "chatgpt-confirmed",
     "initialStatus": "новая"
+  },
+  {
+    "id": "phrase-let-something-blow-over-20261113",
+    "term": "to let something blow over",
+    "ipa": "/tə ˌlet ˌsʌmθɪŋ bləʊ ˈəʊvə/",
+    "ru": "дать неприятной ситуации, конфликту или скандалу утихнуть; переждать",
+    "deck": "Повседневные",
+    "definition": "To wait for an unpleasant situation or disagreement to become less serious or be forgotten.",
+    "examples": [
+      "Let's wait a few days and let the whole thing blow over.",
+      "He decided not to respond immediately and let the controversy blow over."
+    ],
+    "note": "Common: let it blow over / let the whole thing blow over. Do not confuse with let it blow (literally, allow wind to blow).",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая"
   }
 ]
