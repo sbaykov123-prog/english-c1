@@ -11,7 +11,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "blessing"
   },
   {
     "id": "ec4ebdcec84fbf",
@@ -25,7 +26,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "новая"
+    "initialStatus": "новая",
+    "keyHint": "buzz"
   },
   {
     "id": "17a35d204994a5",
@@ -39,7 +41,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "новая"
+    "initialStatus": "новая",
+    "keyHint": "hell"
   },
   {
     "id": "47bddde2f42c2a",
@@ -53,7 +56,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "sight"
   },
   {
     "id": "5ba8043a39609e",
@@ -67,7 +71,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "purpose"
   },
   {
     "id": "295b15973caa97",
@@ -81,7 +86,8 @@
     ],
     "note": "Common in British English; American usage often on weekends / on the weekend.",
     "source": "user-file",
-    "initialStatus": "новая"
+    "initialStatus": "новая",
+    "keyHint": "weekend"
   },
   {
     "id": "f8179960347228",
@@ -95,7 +101,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "новая"
+    "initialStatus": "новая",
+    "keyHint": "but"
   },
   {
     "id": "3a684d0e81f32e",
@@ -109,7 +116,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "penny"
   },
   {
     "id": "fca0768295e9d9",
@@ -123,7 +131,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "passing"
   },
   {
     "id": "506a3623f2515c",
@@ -137,7 +146,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "foreground"
   },
   {
     "id": "20eb1eca648ef0",
@@ -151,7 +161,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "новая"
+    "initialStatus": "новая",
+    "keyHint": "wane"
   },
   {
     "id": "da43c40563737b",
@@ -165,7 +176,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "ordinary"
   },
   {
     "id": "4566b1479e22bd",
@@ -179,7 +191,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "prohibitively"
   },
   {
     "id": "6bbb855c4b1f3e",
@@ -207,7 +220,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "back"
   },
   {
     "id": "7e2a5c5872de6a",
@@ -221,7 +235,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "appeal"
   },
   {
     "id": "b9e690a83456dc",
@@ -235,7 +250,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "stay"
   },
   {
     "id": "a637091843d2e9",
@@ -249,7 +265,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "blur"
   },
   {
     "id": "4e54bfd3322b88",
@@ -263,7 +280,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "новая"
+    "initialStatus": "новая",
+    "keyHint": "surprise"
   },
   {
     "id": "642cec135cbbfc",
@@ -277,7 +295,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "hang"
   },
   {
     "id": "5e345b495b1ec0",
@@ -291,7 +310,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "role"
   },
   {
     "id": "d8204e7ac73da2",
@@ -305,7 +325,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "risk"
   },
   {
     "id": "334a9196d1ac52",
@@ -319,7 +340,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "rest"
   },
   {
     "id": "106efcace80f5b",
@@ -333,7 +355,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "signs"
   },
   {
     "id": "afebab77c3daff",
@@ -347,7 +370,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "новая"
+    "initialStatus": "новая",
+    "keyHint": "praises"
   },
   {
     "id": "b7a84355aec982",
@@ -361,7 +385,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "warn"
   },
   {
     "id": "acaf827569db1d",
@@ -375,7 +400,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "love"
   },
   {
     "id": "d26a172c0d4c33",
@@ -389,7 +415,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "новая"
+    "initialStatus": "новая",
+    "keyHint": "acceleration"
   },
   {
     "id": "948ef2ab72ef61",
@@ -403,7 +430,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "valuation"
   },
   {
     "id": "1e9b5d6dc592ef",
@@ -417,7 +445,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "fraction"
   },
   {
     "id": "d4e4e3fa5795c4",
@@ -431,7 +460,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "balance"
   },
   {
     "id": "3e5e38936921bd",
@@ -445,7 +475,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "case"
   },
   {
     "id": "8c7d5c159a3e95",
@@ -459,7 +490,8 @@
     ],
     "note": "Apply for a position, but apply to a company.",
     "source": "user-file",
-    "initialStatus": "новая"
+    "initialStatus": "новая",
+    "keyHint": "apply"
   },
   {
     "id": "ddb899e9876e6c",
@@ -473,7 +505,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "новая"
+    "initialStatus": "новая",
+    "keyHint": "apply"
   },
   {
     "id": "31c8b838bd400e",
@@ -487,7 +520,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "diligence"
   },
   {
     "id": "e9747f4d1d6856",
@@ -501,7 +535,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "suit"
   },
   {
     "id": "4e0454eaf35632",
@@ -515,7 +550,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "harness"
   },
   {
     "id": "eddb766fc7f988",
@@ -529,7 +565,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "grip"
   },
   {
     "id": "1fdedf1601bebf",
@@ -543,7 +580,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "laud"
   },
   {
     "id": "083bb9b88a447a",
@@ -557,7 +595,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "inroads"
   },
   {
     "id": "3f7bdf763cd809",
@@ -571,7 +610,8 @@
     ],
     "note": "British spelling plough; American plow.",
     "source": "user-file",
-    "initialStatus": "новая"
+    "initialStatus": "новая",
+    "keyHint": "plough"
   },
   {
     "id": "186f35ec26340b",
@@ -585,7 +625,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "concerns"
   },
   {
     "id": "1e43b0662e3168",
@@ -599,7 +640,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "accountable"
   },
   {
     "id": "fea637f5dbbb92",
@@ -613,7 +655,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "scramble"
   },
   {
     "id": "56c61bc006d0f6",
@@ -627,7 +670,8 @@
     ],
     "note": "Informal business English; touch base with someone.",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "base"
   },
   {
     "id": "9f92bfb43dd3c9",
@@ -641,7 +685,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "interface"
   },
   {
     "id": "a1d1f92c5ffbe8",
@@ -655,7 +700,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "autonomy"
   },
   {
     "id": "bc77e3180373af",
@@ -669,7 +715,8 @@
     ],
     "note": "Nuclear refers to propulsion, not necessarily to weapons.",
     "source": "user-file",
-    "initialStatus": "новая"
+    "initialStatus": "новая",
+    "keyHint": "nuclear"
   },
   {
     "id": "393ded80d00600",
@@ -683,7 +730,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "deploy"
   },
   {
     "id": "26d73a99440f0c",
@@ -697,7 +745,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "embrace"
   },
   {
     "id": "c1662ecf2ccd1c",
@@ -711,7 +760,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "accelerate"
   },
   {
     "id": "c4bc6f53799b62",
@@ -725,7 +775,8 @@
     ],
     "note": "An AI model is trained on data; people train with materials.",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "train"
   },
   {
     "id": "863dadfb792e16",
@@ -739,7 +790,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "theatre"
   },
   {
     "id": "c6cf7e1e11fcec",
@@ -753,7 +805,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "bumper"
   },
   {
     "id": "badb20bfa70fd3",
@@ -767,7 +820,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "load"
   },
   {
     "id": "158d553fc9f0cd",
@@ -781,7 +835,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "новая"
+    "initialStatus": "новая",
+    "keyHint": "pace"
   },
   {
     "id": "934bf05f24691e",
@@ -795,7 +850,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "disclosure"
   },
   {
     "id": "7d26d2bcbed6be",
@@ -809,7 +865,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "disciplinary"
   },
   {
     "id": "59b77cb9849b60",
@@ -823,7 +880,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "regulators"
   },
   {
     "id": "fae8eef1f99701",
@@ -837,7 +895,8 @@
     ],
     "note": "Also common: the case went to court.",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "court"
   },
   {
     "id": "99bf8c357619e7",
@@ -851,7 +910,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "trust"
   },
   {
     "id": "454c707cbac7a5",
@@ -865,7 +925,8 @@
     ],
     "note": "",
     "source": "user-file",
-    "initialStatus": "повторение"
+    "initialStatus": "повторение",
+    "keyHint": "justice"
   },
   {
     "id": "80f63c373515a4",
@@ -885,7 +946,8 @@
       "expressionToMeaning": "Easy",
       "date": "2026-11-10",
       "source": "self-reported"
-    }
+    },
+    "keyHint": "pang"
   },
   {
     "id": "1deb0556a2ec87",
@@ -899,7 +961,8 @@
     ],
     "note": "put effort into + noun / -ing.",
     "source": "conversation",
-    "initialStatus": "добавлено в чате"
+    "initialStatus": "добавлено в чате",
+    "keyHint": "effort"
   },
   {
     "id": "e62139d138549b",
@@ -919,7 +982,8 @@
       "expressionToMeaning": "Easy",
       "date": "2026-11-10",
       "source": "self-reported"
-    }
+    },
+    "keyHint": "pan"
   },
   {
     "id": "acc6eca1861d0a",
@@ -939,7 +1003,8 @@
       "expressionToMeaning": "Easy",
       "date": "2026-11-10",
       "source": "self-reported"
-    }
+    },
+    "keyHint": "reluctant"
   },
   {
     "id": "48f303fbb7eeb5",
@@ -959,7 +1024,8 @@
       "expressionToMeaning": "Good",
       "date": "2026-11-10",
       "source": "self-reported"
-    }
+    },
+    "keyHint": "fallout"
   },
   {
     "id": "5fe853ffc1a0cc",
@@ -979,7 +1045,8 @@
       "expressionToMeaning": "Easy",
       "date": "2026-11-10",
       "source": "self-reported"
-    }
+    },
+    "keyHint": "pride"
   },
   {
     "id": "c7687c45646b3d",
@@ -993,7 +1060,8 @@
     ],
     "note": "Especially common in American English; British change gear is also used.",
     "source": "conversation",
-    "initialStatus": "добавлено в чате"
+    "initialStatus": "добавлено в чате",
+    "keyHint": "gears"
   },
   {
     "id": "phrase-strike-a-bargain-20261110",
@@ -1008,7 +1076,8 @@
     ],
     "note": "Usually: strike a bargain with someone; strike a bargain over/on something. More formal than make a deal.",
     "source": "chatgpt-confirmed",
-    "initialStatus": "новая"
+    "initialStatus": "новая",
+    "keyHint": "bargain"
   },
   {
     "id": "phrase-come-to-terms-with-20261110",
@@ -1023,7 +1092,8 @@
     ],
     "note": "Often used with loss, failure, reality, or the fact that…; implies gradual psychological acceptance, not merely agreement.",
     "source": "chatgpt-confirmed",
-    "initialStatus": "новая"
+    "initialStatus": "новая",
+    "keyHint": "terms"
   },
   {
     "id": "phrase-see-through-deception-20261112",
@@ -1038,7 +1108,8 @@
     ],
     "note": "see through someone or their lies/excuses — detect pretence or dishonesty; distinct from see something through (finish it).",
     "source": "chatgpt-confirmed",
-    "initialStatus": "новая"
+    "initialStatus": "новая",
+    "keyHint": "see"
   },
   {
     "id": "phrase-see-something-through-20261112",
@@ -1053,7 +1124,8 @@
     ],
     "note": "Separable: see a project through / see it through; see something through to completion. Not the same as see through someone's lies.",
     "source": "chatgpt-confirmed",
-    "initialStatus": "новая"
+    "initialStatus": "новая",
+    "keyHint": "see"
   },
   {
     "id": "phrase-let-something-blow-over-20261113",
@@ -1068,7 +1140,8 @@
     ],
     "note": "Common: let it blow over / let the whole thing blow over. Do not confuse with let it blow (literally, allow wind to blow).",
     "source": "chatgpt-confirmed",
-    "initialStatus": "новая"
+    "initialStatus": "новая",
+    "keyHint": "blow"
   },
   {
     "id": "phrase-take-an-emotional-toll-20261119",
@@ -1083,7 +1156,8 @@
     ],
     "note": "Common: take a heavy/serious emotional toll on someone; take a toll on someone's mental health.",
     "source": "chatgpt-confirmed",
-    "initialStatus": "новая"
+    "initialStatus": "новая",
+    "keyHint": "toll"
   },
   {
     "id": "phrase-cut-your-losses-20261119",
@@ -1098,7 +1172,8 @@
     ],
     "note": "Often used about business, investments, work and relationships. Losses may involve money, time or effort. Pronoun changes with subject: cut my/our/your/their losses.",
     "source": "chatgpt-confirmed",
-    "initialStatus": "новая"
+    "initialStatus": "новая",
+    "keyHint": "losses"
   },
   {
     "id": "phrase-secure-a-better-role-20261119",
@@ -1113,6 +1188,7 @@
     ],
     "note": "Formal business English: secure a role/position means successfully obtain it; more formal than get a better job.",
     "source": "chatgpt-confirmed",
-    "initialStatus": "новая"
+    "initialStatus": "новая",
+    "keyHint": "secure"
   }
 ]
