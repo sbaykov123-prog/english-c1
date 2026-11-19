@@ -1706,5 +1706,20 @@
     "note": "Often used with voice, music, beauty, atmosphere or performance; stronger and more evocative than interesting.",
     "source": "chatgpt-confirmed",
     "initialStatus": "новая"
+  },
+  {
+    "id": "word-staunch-20261120",
+    "term": "staunch (adjective)",
+    "ipa": "/stɔːntʃ/",
+    "ru": "убеждённый; стойкий; непоколебимый; преданный",
+    "deck": "Повседневные",
+    "definition": "Very loyal and committed to a person, belief or cause, especially when facing opposition or difficulties.",
+    "examples": [
+      "She has always been a staunch supporter of human rights.",
+      "He remained a staunch critic of the government's proposed reforms."
+    ],
+    "note": "Common: a staunch supporter, staunch defender, staunch advocate, staunch critic, staunch opposition. Emphasises firm, unwavering conviction.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая"
   }
 ]
