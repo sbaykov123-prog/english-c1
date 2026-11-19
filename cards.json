@@ -1691,5 +1691,20 @@
     "source": "chatgpt-confirmed",
     "initialStatus": "новая",
     "keyHint": "pay"
+  },
+  {
+    "id": "word-entrancing-20261120",
+    "term": "entrancing (adjective)",
+    "ipa": "/ɪnˈtrɑːnsɪŋ/",
+    "ru": "завораживающий; пленительный; очаровывающий",
+    "deck": "Повседневные",
+    "definition": "Extremely beautiful, interesting or enjoyable in a way that completely holds someone's attention.",
+    "examples": [
+      "She has an entrancing voice that captivates everyone who hears her sing.",
+      "The film's entrancing atmosphere made it impossible to look away."
+    ],
+    "note": "Often used with voice, music, beauty, atmosphere or performance; stronger and more evocative than interesting.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая"
   }
 ]
