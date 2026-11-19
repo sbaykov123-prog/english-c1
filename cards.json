@@ -1190,5 +1190,20 @@
     "source": "chatgpt-confirmed",
     "initialStatus": "новая",
     "keyHint": "secure"
+  },
+  {
+    "id": "word-qualification-20261119",
+    "term": "qualification",
+    "ipa": "/ˌkwɒlɪfɪˈkeɪʃən/",
+    "ru": "квалификация; профессиональная подготовка; диплом или сертификат; требование к кандидату",
+    "deck": "Работа и переговоры",
+    "definition": "A skill, achievement, certificate or level of education that makes someone suitable for a particular job or activity.",
+    "examples": [
+      "She has all the necessary qualifications for the position.",
+      "Legal qualifications and relevant experience are essential for this role."
+    ],
+    "note": "Often plural (qualifications) for credentials and job requirements. Common: professional qualifications, academic qualifications, meet the qualifications for a job.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая"
   }
 ]
