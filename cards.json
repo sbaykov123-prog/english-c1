@@ -1721,5 +1721,21 @@
     "note": "Common: a staunch supporter, staunch defender, staunch advocate, staunch critic, staunch opposition. Emphasises firm, unwavering conviction.",
     "source": "chatgpt-confirmed",
     "initialStatus": "новая"
+  },
+  {
+    "id": "phrase-draw-an-inference-20261120",
+    "term": "to draw an inference",
+    "ipa": "/tə ˌdrɔː ən ˈɪnfərəns/",
+    "ru": "сделать вывод; прийти к заключению на основании имеющихся фактов",
+    "deck": "Право",
+    "definition": "To reach a conclusion based on available evidence, observations or reasoning rather than on an explicit statement.",
+    "examples": [
+      "We can draw an inference from the available evidence that the decision was politically motivated.",
+      "It would be premature to draw any inferences from these preliminary findings."
+    ],
+    "note": "Draw an inference (singular); draw inferences (plural). Common: draw an inference from the evidence, draw a reasonable inference, draw an adverse inference.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая",
+    "keyHint": "draw"
   }
 ]
