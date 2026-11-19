@@ -72,7 +72,11 @@ function chooseSession(deck='Все'){
  if(!queue.length){session=null;view='empty';render();return}
  session={queue,index:0,revealed:false,retrain:false,sessionHistory:[],deck};view='study';render();
 }
-function study(){const x=session.queue[session.index],c=x.card,p=progress(c.id,x.dir);const front=x.dir===0?(c.definition||`Переведи на английский: ${c.ru}`):c.term;
+function definitionPrompt(c){
+ const definition=c.definition||`Переведи на английский: ${c.ru}`;
+ return c.keyHint&&c.definition?`${definition} (a phrase with “${c.keyHint}”)`:definition;
+}
+function study(){const x=session.queue[session.index],c=x.card,p=progress(c.id,x.dir);const front=x.dir===0?definitionPrompt(c):c.term;
  const incomplete=x.dir===0&&!c.definition;
  let back=x.dir===0?`<h2>${esc(c.term)}</h2><div class="ipa">${esc(c.ipa)}</div><div class="definition">${esc(c.definition||c.ru)}</div>`:`<h2>${esc(c.term)}</h2><div class="ipa">${esc(c.ipa)}</div><div class="definition">${esc(c.definition||c.ru)}</div>`;
  if(c.examples?.length)back+=`<div class="examples">${c.examples.slice(0,2).map(e=>`<div>${esc(e)}</div>`).join('')}</div>`;
@@ -131,7 +135,7 @@ function importCardsText(value){try{const result=importCardsPayload(JSON.parse(v
 function saveJSONFile(data,filename){const content=JSON.stringify(data,null,2),blob=new Blob([content],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)}
 function downloadImportTemplate(){saveJSONFile({cards:[{term:'to ...',ipa:'/…/',definition:'To ...',examples:['She ...','They ...'],ru:'Перевод',note:'Usage: ...',deck:'Повседневные'}]},'english-c1-import-template.json')}
 function editCard(){const c=editId?state.cards.find(x=>x.id===editId):null;const formField=(label,name,value,textarea=false)=>`<label class="fieldlabel">${label}${textarea?`<textarea class="field" name="${name}">${esc(value||'')}</textarea>`:`<input class="field" name="${name}" value="${esc(value||'')}">`}</label>`;
- shell(`<section class="panel"><h1>${c?'Редактирование':'Новая карточка'}</h1><form id="cardForm" class="formgrid">${formField('Выражение','term',c?.term)}${formField('Британская IPA','ipa',c?.ipa)}${formField('Перевод','ru',c?.ru)}${formField('English definition (without the expression)','definition',c?.definition,true)}${formField('Example 1','ex1',c?.examples?.[0])}${formField('Example 2','ex2',c?.examples?.[1])}${formField('Usage notes','note',c?.note,true)}${formField('Колода','deck',c?.deck||'Повседневные')}<button class="primary" type="submit">Сохранить</button><button class="secondary" type="button" data-cancel-edit>Отмена</button></form></section>`)}
+ shell(`<section class="panel"><h1>${c?'Редактирование':'Новая карточка'}</h1><form id="cardForm" class="formgrid">${formField('Выражение','term',c?.term)}${formField('Британская IPA','ipa',c?.ipa)}${formField('Перевод','ru',c?.ru)}${formField('English definition (without the expression)','definition',c?.definition,true)}${formField('Ключевое слово-подсказка (без полного выражения)','keyHint',c?.keyHint)}${formField('Example 1','ex1',c?.examples?.[0])}${formField('Example 2','ex2',c?.examples?.[1])}${formField('Usage notes','note',c?.note,true)}${formField('Колода','deck',c?.deck||'Повседневные')}<button class="primary" type="submit">Сохранить</button><button class="secondary" type="button" data-cancel-edit>Отмена</button></form></section>`)}
 function saveCard(form){
  const f=new FormData(form),term=String(f.get('term')||'').trim();
  if(!term)return alert('Укажи выражение');
@@ -141,7 +145,7 @@ function saveCard(form){
  const c={
   ...(previous||{}),id:editId||crypto.randomUUID(),
   term,ipa:String(f.get('ipa')||'').trim(),ru:String(f.get('ru')||'').trim(),
-  definition:String(f.get('definition')||'').trim(),
+  definition:String(f.get('definition')||'').trim(),keyHint:String(f.get('keyHint')||'').trim(),
   examples:[f.get('ex1'),f.get('ex2')].map(String).map(x=>x.trim()).filter(Boolean),
   note:String(f.get('note')||'').trim(),
   deck:String(f.get('deck')||'Повседневные').trim()||'Повседневные',
@@ -199,15 +203,22 @@ async function refreshCatalogue(){
     if(!Array.isArray(incoming))throw Error('Unexpected catalogue format');
     const ids=new Set(state.cards.map(c=>c.id));
     const terms=new Set(state.cards.map(c=>normTerm(c.term)));
+    // Bring new keyword hints to old local cards without replacing user-edited card content.
+    let hintUpdates=0;
+    for(const card of incoming){
+      if(!card?.keyHint)continue;
+      const existing=state.cards.find(c=>c.id===card.id||normTerm(c.term)===normTerm(card.term));
+      if(existing&&!existing.editedLocallyAt&&existing.keyHint!==card.keyHint){existing.keyHint=card.keyHint;hintUpdates++}
+    }
     let added=0;
     for(const card of incoming){
       if(!card||!card.id||!card.term||ids.has(card.id)||terms.has(normTerm(card.term)))continue;
       state.cards.push(card);ids.add(card.id);terms.add(normTerm(card.term));added++;
     }
-    if(added){persist();render()}
+    if(added||hintUpdates){persist();render()}
   }catch(error){console.warn('Catalogue refresh unavailable; local progress remains intact',error)}
   finally{catalogueCheckRunning=false}
 }
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshCatalogue()});
 window.addEventListener('focus',()=>refreshCatalogue());
-(async function init(){try{const r=await fetch('./cards.json?refresh='+Date.now(),{cache:'no-store'});if(!r.ok)throw Error('cards.json');seed=await r.json();let saved;try{saved=JSON.parse(localStorage.getItem(STORAGE_KEY))}catch{}state=saved?.version===1&&Array.isArray(saved.cards)?saved:defaultState();if(!saved){state.cards=seed;persist()}else{const ids=new Set(state.cards.map(c=>c.id));for(const c of seed)if(!ids.has(c.id)&&!state.cards.some(x=>x.term.toLowerCase()===c.term.toLowerCase()))state.cards.push(c);persist()}render();if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js').catch(()=>{})}catch(e){$('#app').innerHTML=`<div class="wrap panel"><h2>Не удалось загрузить приложение</h2><p>Открой его через локальный HTTP-сервер или опубликованный HTTPS-сайт, а не напрямую как файл.</p><code>${esc(e.message)}</code></div>`}})();
+(async function init(){try{const r=await fetch('./cards.json?refresh='+Date.now(),{cache:'no-store'});if(!r.ok)throw Error('cards.json');seed=await r.json();let saved;try{saved=JSON.parse(localStorage.getItem(STORAGE_KEY))}catch{}state=saved?.version===1&&Array.isArray(saved.cards)?saved:defaultState();if(!saved){state.cards=seed;persist()}else{const ids=new Set(state.cards.map(c=>c.id));for(const c of seed){const existing=state.cards.find(x=>x.id===c.id||normTerm(x.term)===normTerm(c.term));if(existing){if(c.keyHint&&!existing.editedLocallyAt)existing.keyHint=c.keyHint}else state.cards.push(c)}persist()}render();if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js').catch(()=>{})}catch(e){$('#app').innerHTML=`<div class="wrap panel"><h2>Не удалось загрузить приложение</h2><p>Открой его через локальный HTTP-сервер или опубликованный HTTPS-сайт, а не напрямую как файл.</p><code>${esc(e.message)}</code></div>`}})();
