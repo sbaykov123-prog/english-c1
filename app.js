@@ -72,9 +72,16 @@ function chooseSession(deck='Все'){
  if(!queue.length){session=null;view='empty';render();return}
  session={queue,index:0,revealed:false,retrain:false,sessionHistory:[],deck};view='study';render();
 }
+function isSingleWordCard(c){
+ // Ignore optional part-of-speech labels such as "(adj.)" in the stored term.
+ const answer=String(c.term||'').replace(/\s*\((?:adj\.?|adv\.?|noun|verb|n\.?|v\.?)\)\s*/gi,'').trim();
+ return !!answer&&!/\s/.test(answer);
+}
 function definitionPrompt(c){
  const definition=c.definition||`Переведи на английский: ${c.ru}`;
- return c.keyHint&&c.definition?`${definition} (a phrase with “${c.keyHint}”)`:definition;
+ // A keyword hint would disclose the answer to a single-word card.
+ return c.keyHint&&c.definition&&!isSingleWordCard(c)
+  ?`${definition} (a phrase with “${c.keyHint}”)`:definition;
 }
 function study(){const x=session.queue[session.index],c=x.card,p=progress(c.id,x.dir);const front=x.dir===0?definitionPrompt(c):c.term;
  const incomplete=x.dir===0&&!c.definition;
