@@ -1069,5 +1069,20 @@
     "note": "Common: let it blow over / let the whole thing blow over. Do not confuse with let it blow (literally, allow wind to blow).",
     "source": "chatgpt-confirmed",
     "initialStatus": "новая"
+  },
+  {
+    "id": "phrase-take-an-emotional-toll-20261119",
+    "term": "to take an emotional toll (on someone)",
+    "ipa": "/tə ˌteɪk ən ɪˌməʊʃənəl ˈtəʊl/",
+    "ru": "эмоционально истощать; тяжело сказываться на психологическом состоянии человека",
+    "deck": "Повседневные",
+    "definition": "To cause significant emotional stress, suffering or exhaustion over time.",
+    "examples": [
+      "Working in a toxic environment can take a serious emotional toll on employees.",
+      "The prolonged uncertainty took an emotional toll on her."
+    ],
+    "note": "Common: take a heavy/serious emotional toll on someone; take a toll on someone's mental health.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая"
   }
 ]
