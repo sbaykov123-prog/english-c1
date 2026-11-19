@@ -1753,5 +1753,20 @@
     "source": "chatgpt-confirmed",
     "initialStatus": "новая",
     "keyHint": "bring"
+  },
+  {
+    "id": "word-contrive-20261120",
+    "term": "contrive (verb)",
+    "ipa": "/kənˈtraɪv/",
+    "ru": "ухитриться, умудриться; искусственно создать или подстроить; придумать хитроумный способ",
+    "deck": "Повседневные",
+    "definition": "To manage to do something difficult or unexpected, often by using clever methods, or to arrange something deliberately and sometimes artificially.",
+    "examples": [
+      "He contrived to finish the project despite having almost no resources.",
+      "The company contrived a reason to dismiss the employee."
+    ],
+    "note": "Contrive to do something = manage to do it, sometimes improbably or ironically. Contrive something = invent or arrange it, often artificially. Contrived (adjective) = forced or unnatural.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая"
   }
 ]
