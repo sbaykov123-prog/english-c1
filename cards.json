@@ -1737,5 +1737,21 @@
     "source": "chatgpt-confirmed",
     "initialStatus": "новая",
     "keyHint": "draw"
+  },
+  {
+    "id": "phrase-bring-relief-20261120",
+    "term": "to bring relief (to someone)",
+    "ipa": "/tə ˌbrɪŋ rɪˈliːf/",
+    "ru": "приносить облегчение; ослаблять боль, стресс, тревогу или страдания",
+    "deck": "Повседневные",
+    "definition": "To make someone feel less pain, worry or distress, or to improve a difficult situation.",
+    "examples": [
+      "The medication brought immediate relief from the pain.",
+      "The news that she had recovered brought enormous relief to her family."
+    ],
+    "note": "Common: bring relief to someone; bring relief from pain or stress; bring much-needed relief. Relief is uncountable in this sense (not 'a relief' in the phrase 'bring relief').",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая",
+    "keyHint": "bring"
   }
 ]
