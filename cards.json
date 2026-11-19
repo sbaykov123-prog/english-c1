@@ -1205,5 +1205,491 @@
     "note": "Often plural (qualifications) for credentials and job requirements. Common: professional qualifications, academic qualifications, meet the qualifications for a job.",
     "source": "chatgpt-confirmed",
     "initialStatus": "новая"
+  },
+  {
+    "id": "phrase-have-second-thoughts-20261119",
+    "term": "to have second thoughts",
+    "ipa": "/tə hæv ˌsekənd ˈθɔːts/",
+    "ru": "начать сомневаться в принятом решении; передумать",
+    "deck": "Повседневные",
+    "definition": "To begin doubting a decision that you have already made.",
+    "examples": [
+      "I had second thoughts about accepting the offer.",
+      "She is having second thoughts about moving abroad."
+    ],
+    "note": "Usually have second thoughts about something; not the same as thinking something through.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая",
+    "keyHint": "second"
+  },
+  {
+    "id": "phrase-come-at-a-cost-20261119",
+    "term": "to come at a cost",
+    "ipa": "/tə ˌkʌm ət ə ˈkɒst/",
+    "ru": "иметь свою цену; влечь издержки",
+    "deck": "Повседневные",
+    "definition": "To involve a disadvantage or sacrifice in exchange for a benefit.",
+    "examples": [
+      "Career success often comes at a cost.",
+      "The extra flexibility came at a considerable cost."
+    ],
+    "note": "Often used when an apparent benefit has a hidden drawback.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая",
+    "keyHint": "cost"
+  },
+  {
+    "id": "phrase-colloquial-20261119",
+    "term": "colloquial",
+    "ipa": "/kəˈləʊkwiəl/",
+    "ru": "разговорный; характерный для неформальной речи",
+    "deck": "Повседневные",
+    "definition": "Used in ordinary informal conversation rather than formal language.",
+    "examples": [
+      "That is a colloquial expression, not a legal term.",
+      "His writing is clear but sometimes rather colloquial."
+    ],
+    "note": "Adjective: colloquial language, a colloquial expression; related noun: colloquialism.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая"
+  },
+  {
+    "id": "phrase-physique-20261119",
+    "term": "physique",
+    "ipa": "/fɪˈziːk/",
+    "ru": "телосложение; физическая форма тела",
+    "deck": "Спорт",
+    "definition": "The shape and overall physical appearance of a person's body.",
+    "examples": [
+      "He developed an impressive physique through years of training.",
+      "Her athletic physique reflects her dedication to sport."
+    ],
+    "note": "Common: muscular, athletic, lean or impressive physique.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая"
+  },
+  {
+    "id": "phrase-a-muscular-physique-20261119",
+    "term": "a muscular physique",
+    "ipa": "/ə ˌmʌskjələ fɪˈziːk/",
+    "ru": "мускулистое телосложение",
+    "deck": "Спорт",
+    "definition": "A body shape marked by visibly developed muscles.",
+    "examples": [
+      "Building a muscular physique takes consistent training.",
+      "He maintained a muscular physique well into his forties."
+    ],
+    "note": "Physique refers to body build, not simply strength.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая",
+    "keyHint": "muscular"
+  },
+  {
+    "id": "phrase-olympia-20261119",
+    "term": "Olympia",
+    "ipa": "/əˈlɪmpiə/",
+    "ru": "«Мистер Олимпия»; соревнование по профессиональному бодибилдингу",
+    "deck": "Спорт",
+    "definition": "A prestigious international professional bodybuilding competition associated with the Mr Olympia title.",
+    "examples": [
+      "Winning at the Olympia is a major achievement in professional bodybuilding.",
+      "Several elite bodybuilders competed at the Olympia."
+    ],
+    "note": "Here: Olympia / Mr Olympia bodybuilding contest, not the ancient Greek site or the Olympic Games.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая"
+  },
+  {
+    "id": "phrase-win-the-genetic-lottery-20261119",
+    "term": "to win the genetic lottery",
+    "ipa": "/tə ˌwɪn ðə dʒəˌnetɪk ˈlɒtəri/",
+    "ru": "выиграть генетическую лотерею; иметь удачные врождённые данные",
+    "deck": "Спорт",
+    "definition": "To be born with unusually favourable inherited traits.",
+    "examples": [
+      "Some athletes seem to have won the genetic lottery.",
+      "He won the genetic lottery when it came to muscle-building potential."
+    ],
+    "note": "Informal, figurative phrase; often used about appearance or athletic ability.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая",
+    "keyHint": "genetic"
+  },
+  {
+    "id": "phrase-there-is-some-truth-to-something-20261119",
+    "term": "there is some truth to something",
+    "ipa": "/ðeər ɪz səm ˈtruːθ tə ˌsʌmθɪŋ/",
+    "ru": "в чём-либо есть доля правды",
+    "deck": "Повседневные",
+    "definition": "A claim or opinion is partly accurate, even if it is not entirely correct.",
+    "examples": [
+      "There is some truth to the criticism.",
+      "There is some truth to what you are saying, but the situation is more complex."
+    ],
+    "note": "Common: there is some truth to that / to the argument; allows qualified agreement.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая",
+    "keyHint": "truth"
+  },
+  {
+    "id": "phrase-have-meaning-20261119",
+    "term": "to have meaning",
+    "ipa": "/tə hæv ˈmiːnɪŋ/",
+    "ru": "иметь смысл; иметь значение",
+    "deck": "Повседневные",
+    "definition": "To be significant, purposeful or understandable rather than empty or pointless.",
+    "examples": [
+      "People want their work to have meaning.",
+      "The gesture had special meaning for her."
+    ],
+    "note": "Can refer to purpose, personal significance or linguistic sense.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая",
+    "keyHint": "meaning"
+  },
+  {
+    "id": "phrase-abandon-a-goal-20261119",
+    "term": "to abandon a goal",
+    "ipa": "/tə əˌbændən ə ˈɡəʊl/",
+    "ru": "отказаться от цели",
+    "deck": "Повседневные",
+    "definition": "To stop trying to achieve an objective that you previously intended to pursue.",
+    "examples": [
+      "He refused to abandon his goal despite repeated setbacks.",
+      "Sometimes it is sensible to abandon a goal that no longer matters."
+    ],
+    "note": "Abandon suggests giving something up, often completely.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая",
+    "keyHint": "abandon"
+  },
+  {
+    "id": "phrase-aspiring-20261119",
+    "term": "aspiring",
+    "ipa": "/əˈspaɪərɪŋ/",
+    "ru": "стремящийся стать кем-либо; начинающий, подающий надежды",
+    "deck": "Работа и переговоры",
+    "definition": "Hoping and working to become successful in a particular profession or activity.",
+    "examples": [
+      "The course is designed for aspiring lawyers.",
+      "She offers advice to aspiring entrepreneurs."
+    ],
+    "note": "Attributive adjective: aspiring actor, writer, athlete. Distinguish from inspiring.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая"
+  },
+  {
+    "id": "phrase-reassess-20261119",
+    "term": "to reassess",
+    "ipa": "/ˌriːəˈses/",
+    "ru": "пересмотреть оценку; заново оценить",
+    "deck": "Работа и переговоры",
+    "definition": "To evaluate something again, especially because circumstances have changed.",
+    "examples": [
+      "It may be time to reassess your career priorities.",
+      "The team reassessed the risks after receiving new evidence."
+    ],
+    "note": "Reassess a situation, decision, priorities or risks.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая"
+  },
+  {
+    "id": "phrase-persistence-20261119",
+    "term": "persistence",
+    "ipa": "/pəˈsɪstəns/",
+    "ru": "настойчивость; упорство",
+    "deck": "Повседневные",
+    "definition": "The quality of continuing to try despite difficulty, delay or opposition.",
+    "examples": [
+      "Her persistence eventually led to success.",
+      "Persistence matters more than initial enthusiasm."
+    ],
+    "note": "Often focuses on continuing a course of action; compare perseverance and determination.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая"
+  },
+  {
+    "id": "phrase-accomplished-20261119",
+    "term": "accomplished (adjective)",
+    "ipa": "/əˈkʌmplɪʃt/",
+    "ru": "опытный; искусный; состоявшийся",
+    "deck": "Работа и переговоры",
+    "definition": "Highly skilled or successful in a particular activity or profession.",
+    "examples": [
+      "She is an accomplished lawyer and negotiator.",
+      "He became an accomplished pianist through years of practice."
+    ],
+    "note": "An accomplished professional has demonstrated skill or achievement; not simply finished.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая"
+  },
+  {
+    "id": "phrase-establish-a-career-20261119",
+    "term": "to establish a career",
+    "ipa": "/tə ɪˌstæblɪʃ ə kəˈrɪə/",
+    "ru": "построить карьеру; закрепиться в профессии",
+    "deck": "Работа и переговоры",
+    "definition": "To build a stable professional position and reputation over time.",
+    "examples": [
+      "She moved to London to establish a career in law.",
+      "It takes time to establish a career in a competitive field."
+    ],
+    "note": "Often establish a career in a field; distinct from starting a first job.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая",
+    "keyHint": "establish"
+  },
+  {
+    "id": "phrase-perseverance-20261119",
+    "term": "perseverance",
+    "ipa": "/ˌpɜːsɪˈvɪərəns/",
+    "ru": "стойкость; упорство в преодолении трудностей",
+    "deck": "Повседневные",
+    "definition": "Continued effort and commitment despite setbacks, hardship or discouragement.",
+    "examples": [
+      "Learning a language to an advanced level requires perseverance.",
+      "His perseverance helped him recover from several failures."
+    ],
+    "note": "Often emphasizes endurance through hardship; compare persistence.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая"
+  },
+  {
+    "id": "phrase-determination-20261119",
+    "term": "determination",
+    "ipa": "/dɪˌtɜːmɪˈneɪʃən/",
+    "ru": "решимость; целеустремлённость",
+    "deck": "Повседневные",
+    "definition": "A firm intention and strong resolve to achieve something.",
+    "examples": [
+      "She showed remarkable determination throughout the project.",
+      "Talent alone is rarely enough without determination."
+    ],
+    "note": "Determination highlights resolve; perseverance highlights continuing despite adversity.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая"
+  },
+  {
+    "id": "phrase-pursue-an-ambitious-goal-20261119",
+    "term": "to pursue an ambitious goal",
+    "ipa": "/tə pəˌsjuː ən æmˌbɪʃəs ˈɡəʊl/",
+    "ru": "стремиться к амбициозной цели",
+    "deck": "Повседневные",
+    "definition": "To actively work towards an objective that is difficult and demanding.",
+    "examples": [
+      "He chose to pursue an ambitious goal in his career.",
+      "Pursuing an ambitious goal can require years of focused effort."
+    ],
+    "note": "Pursue a goal, dream or ambition; not necessarily achieve it.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая",
+    "keyHint": "pursue"
+  },
+  {
+    "id": "phrase-admittedly-20261119",
+    "term": "admittedly",
+    "ipa": "/ədˈmɪtɪdli/",
+    "ru": "следует признать; надо признать",
+    "deck": "Повседневные",
+    "definition": "Used to acknowledge a point that may weaken or qualify your argument.",
+    "examples": [
+      "Admittedly, the plan is expensive, but it could work.",
+      "Admittedly, I underestimated how difficult it would be."
+    ],
+    "note": "Sentence adverb for conceding a point before giving further context.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая"
+  },
+  {
+    "id": "phrase-this-is-not-to-say-that-20261119",
+    "term": "this is not to say that…",
+    "ipa": "/ðɪs ɪz ˌnɒt tə ˈseɪ ðət/",
+    "ru": "это не означает, что…",
+    "deck": "Повседневные",
+    "definition": "Used to clarify that a statement should not be understood as making a broader claim.",
+    "examples": [
+      "This is not to say that money is unimportant.",
+      "I value ambition. This is not to say that everyone must pursue the same goals."
+    ],
+    "note": "Formal discourse marker used to prevent an overgeneralisation.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая",
+    "keyHint": "say"
+  },
+  {
+    "id": "phrase-that-said-20261119",
+    "term": "that said, …",
+    "ipa": "/ˌðæt ˈsed/",
+    "ru": "тем не менее; при этом; вместе с тем",
+    "deck": "Повседневные",
+    "definition": "Used to introduce a contrasting point or qualification to what was just mentioned.",
+    "examples": [
+      "The job offers a good salary. That said, the hours are demanding.",
+      "It was a difficult year. That said, we made real progress."
+    ],
+    "note": "Sentence connector, often at the start of a sentence; similar to nevertheless.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая",
+    "keyHint": "said"
+  },
+  {
+    "id": "phrase-although-this-may-be-true-20261119",
+    "term": "although this may be true, …",
+    "ipa": "/ɔːlˌðəʊ ðɪs meɪ bi ˈtruː/",
+    "ru": "хотя это, возможно, и правда…",
+    "deck": "Повседневные",
+    "definition": "Used to acknowledge a point before presenting a different perspective.",
+    "examples": [
+      "Although this may be true, the long-term effects are uncertain.",
+      "Although this may be true, it does not justify the decision."
+    ],
+    "note": "Concessive clause; the following main clause contrasts with the concession.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая",
+    "keyHint": "although"
+  },
+  {
+    "id": "phrase-sacrifice-something-on-the-altar-of-something-20261119",
+    "term": "to sacrifice something on the altar of something",
+    "ipa": "/tə ˈsækrɪfaɪs ˌsʌmθɪŋ ɒn ði ˈɔːltər əv ˌsʌmθɪŋ/",
+    "ru": "принести что-либо в жертву чему-либо",
+    "deck": "Повседневные",
+    "definition": "To give up something valuable in order to prioritise another aim, belief or value.",
+    "examples": [
+      "He sacrificed his health on the altar of career success.",
+      "We should not sacrifice fairness on the altar of efficiency."
+    ],
+    "note": "Figurative, rhetorical expression; often critical of excessive priorities.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая",
+    "keyHint": "altar"
+  },
+  {
+    "id": "phrase-at-the-expense-of-something-20261119",
+    "term": "at the expense of something",
+    "ipa": "/ət ði ɪkˈspens əv ˌsʌmθɪŋ/",
+    "ru": "за счёт чего-либо; в ущерб чему-либо",
+    "deck": "Повседневные",
+    "definition": "In a way that harms or reduces one thing while benefiting another.",
+    "examples": [
+      "He advanced his career at the expense of his health.",
+      "Speed should not come at the expense of accuracy."
+    ],
+    "note": "Common: at the expense of quality, wellbeing, fairness; expense is singular here.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая",
+    "keyHint": "expense"
+  },
+  {
+    "id": "phrase-perseverance-in-the-face-of-adversity-20261119",
+    "term": "perseverance in the face of adversity",
+    "ipa": "/ˌpɜːsɪˈvɪərəns ɪn ðə ˌfeɪs əv ədˈvɜːsəti/",
+    "ru": "стойкость перед лицом невзгод",
+    "deck": "Повседневные",
+    "definition": "Continued effort and resilience despite serious obstacles or hardship.",
+    "examples": [
+      "Her perseverance in the face of adversity inspired the team.",
+      "The story celebrates perseverance in the face of adversity."
+    ],
+    "note": "Relatively formal collocation for resilience amid hardship.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая",
+    "keyHint": "perseverance"
+  },
+  {
+    "id": "phrase-show-perseverance-20261119",
+    "term": "to show perseverance",
+    "ipa": "/tə ˌʃəʊ ˌpɜːsɪˈvɪərəns/",
+    "ru": "проявлять упорство; демонстрировать стойкость",
+    "deck": "Повседневные",
+    "definition": "To demonstrate the ability to keep trying when things are difficult.",
+    "examples": [
+      "He showed perseverance after several failed attempts.",
+      "You need to show perseverance when learning a difficult skill."
+    ],
+    "note": "Also demonstrate perseverance; often used in educational and motivational contexts.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая",
+    "keyHint": "show"
+  },
+  {
+    "id": "phrase-sheer-persistence-20261119",
+    "term": "sheer persistence",
+    "ipa": "/ˌʃɪə pəˈsɪstəns/",
+    "ru": "исключительное упорство; упорство само по себе",
+    "deck": "Повседневные",
+    "definition": "Very great determination to keep trying, often presented as the main reason for success.",
+    "examples": [
+      "She succeeded through sheer persistence.",
+      "His progress was the result of sheer persistence rather than luck."
+    ],
+    "note": "Sheer intensifies the quality and suggests little else was needed.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая",
+    "keyHint": "sheer"
+  },
+  {
+    "id": "phrase-persistence-in-doing-something-20261119",
+    "term": "persistence in doing something",
+    "ipa": "/pəˈsɪstəns ɪn ˈduːɪŋ ˌsʌmθɪŋ/",
+    "ru": "настойчивость в выполнении чего-либо",
+    "deck": "Повседневные",
+    "definition": "The habit of continuing a particular activity despite obstacles or repeated difficulty.",
+    "examples": [
+      "Her persistence in applying for jobs eventually paid off.",
+      "Persistence in practising every day helped him improve."
+    ],
+    "note": "Grammar: persistence in + -ing form; persistence in pursuing a goal.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая",
+    "keyHint": "persistence"
+  },
+  {
+    "id": "phrase-along-the-way-20261119",
+    "term": "along the way",
+    "ipa": "/əˌlɒŋ ðə ˈweɪ/",
+    "ru": "по пути; в процессе; попутно",
+    "deck": "Повседневные",
+    "definition": "During the course of a journey, process or longer experience.",
+    "examples": [
+      "I made several good friends along the way.",
+      "He encountered unexpected difficulties along the way."
+    ],
+    "note": "Can describe a literal journey or progress towards a goal.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая",
+    "keyHint": "way"
+  },
+  {
+    "id": "phrase-overcome-adversity-20261119",
+    "term": "to overcome adversity",
+    "ipa": "/tə ˌəʊvəˈkʌm ədˈvɜːsəti/",
+    "ru": "преодолеть трудности; справиться с невзгодами",
+    "deck": "Повседневные",
+    "definition": "To succeed in dealing with serious difficulties or hardship.",
+    "examples": [
+      "She overcame adversity to build a successful career.",
+      "The team showed that it could overcome adversity."
+    ],
+    "note": "Adversity is usually uncountable and more serious than an ordinary inconvenience.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая",
+    "keyHint": "overcome"
+  },
+  {
+    "id": "phrase-pay-off-20261119",
+    "term": "to pay off",
+    "ipa": "/tə ˌpeɪ ˈɒf/",
+    "ru": "окупиться; принести результат",
+    "deck": "Повседневные",
+    "definition": "To produce a worthwhile result or reward after effort, time or investment.",
+    "examples": [
+      "All those years of hard work finally paid off.",
+      "Her patience and persistence paid off in the end."
+    ],
+    "note": "Here: an effort or investment pays off. Separate sense: pay off a debt means repay it.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая",
+    "keyHint": "pay"
   }
 ]
