@@ -1099,5 +1099,20 @@
     "note": "Often used about business, investments, work and relationships. Losses may involve money, time or effort. Pronoun changes with subject: cut my/our/your/their losses.",
     "source": "chatgpt-confirmed",
     "initialStatus": "новая"
+  },
+  {
+    "id": "phrase-secure-a-better-role-20261119",
+    "term": "to secure a better role",
+    "ipa": "/tə sɪˌkjʊər ə ˌbetə ˈrəʊl/",
+    "ru": "получить более привлекательную должность; добиться перехода на лучшую позицию",
+    "deck": "Работа и переговоры",
+    "definition": "To successfully obtain a more desirable job or position, often with better pay, responsibilities or working conditions.",
+    "examples": [
+      "He left the company after securing a better role elsewhere.",
+      "She hopes to secure a better role with greater autonomy and career prospects."
+    ],
+    "note": "Formal business English: secure a role/position means successfully obtain it; more formal than get a better job.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая"
   }
 ]
