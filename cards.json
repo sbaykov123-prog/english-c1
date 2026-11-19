@@ -1084,5 +1084,20 @@
     "note": "Common: take a heavy/serious emotional toll on someone; take a toll on someone's mental health.",
     "source": "chatgpt-confirmed",
     "initialStatus": "новая"
+  },
+  {
+    "id": "phrase-cut-your-losses-20261119",
+    "term": "to cut your losses",
+    "ipa": "/tə ˌkʌt jɔː ˈlɒsɪz/",
+    "ru": "вовремя остановиться, чтобы избежать дальнейших потерь; прекратить бесперспективное дело",
+    "deck": "Работа и переговоры",
+    "definition": "To stop an unsuccessful activity or leave a bad situation to avoid losing even more.",
+    "examples": [
+      "I realised the job wasn't right for me, so I decided to cut my losses and leave.",
+      "After months of poor sales, the company decided to cut its losses and close the project."
+    ],
+    "note": "Often used about business, investments, work and relationships. Losses may involve money, time or effort. Pronoun changes with subject: cut my/our/your/their losses.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая"
   }
 ]
