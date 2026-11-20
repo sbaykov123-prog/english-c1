@@ -1768,5 +1768,35 @@
     "note": "Contrive to do something = manage to do it, sometimes improbably or ironically. Contrive something = invent or arrange it, often artificially. Contrived (adjective) = forced or unnatural.",
     "source": "chatgpt-confirmed",
     "initialStatus": "новая"
+  },
+  {
+    "id": "word-suppuration-20261120",
+    "term": "suppuration",
+    "ipa": "/ˌsʌpjʊˈreɪʃən/",
+    "ru": "нагноение; образование или выделение гноя",
+    "deck": "Здоровье",
+    "definition": "The formation or discharge of pus in an infected or inflamed part of the body.",
+    "examples": [
+      "The doctor noticed signs of suppuration around the wound.",
+      "Persistent suppuration may indicate an underlying infection."
+    ],
+    "note": "Formal medical term; everyday alternatives: pus formation or a wound producing pus. Related: suppurate (verb), suppurative (adjective).",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая"
+  },
+  {
+    "id": "word-mangy-20261120",
+    "term": "mangy",
+    "ipa": "/ˈmeɪndʒi/",
+    "ru": "паршивый, облезлый; жалкий, потрёпанный",
+    "deck": "Повседневные",
+    "definition": "Having a dirty, patchy or unhealthy-looking coat of fur, or looking shabby and neglected.",
+    "examples": [
+      "A mangy stray dog was wandering around the abandoned building.",
+      "He was wearing a mangy old coat that looked as though it hadn't been washed in years."
+    ],
+    "note": "Originally related to mange, a skin disease in animals. Figuratively shabby or neglected; can sound disparaging when applied to people.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая"
   }
 ]
