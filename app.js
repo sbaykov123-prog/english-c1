@@ -21,7 +21,7 @@ function estimateInterval(p,r){
   // Only brand-new directions enter this step. Existing progress is untouched.
   const t=now(),MIN=60000;
   const easeBase=p?.ease??2.5;
-  if(r===0)return {due:t+10*MIN,interval:0,streak:0,ease:Math.max(1.3,easeBase-.2),lapses:(p?.lapses??0)+1,learningStep:p?.learningStep===1?1:(p?.learningStep??0)};
+  if(r===0)return {due:t+10*MIN,interval:0,streak:0,ease:Math.max(1.3,easeBase-.2),lapses:(p?.lapses??0)+1,learningStep:0};
   let ease=easeBase;
   if(r===1)ease=Math.max(1.3,ease-.15);
   if(r===3)ease=Math.min(3.2,ease+.15);
