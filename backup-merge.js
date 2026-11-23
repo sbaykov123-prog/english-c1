@@ -13,18 +13,27 @@ function replay(history,cards,existing){
  for(const h of sorted){
   if(!known.has(h.id)||![0,1].includes(h.dir)||![0,1,2,3].includes(h.rating)||!Number.isFinite(h.at))continue;
   const k=h.id+':'+h.dir,p=out[k],r=h.rating;
-  let ease=p?.ease??2.5,streak=(p?.streak??0)+1,interval=0,lapses=p?.lapses??0;
+  let ease=p?.ease??2.5,streak=(p?.streak??0)+1,interval=0,lapses=p?.lapses??0,learningStep=p?.learningStep;
+  const isNewScheduler=h.schedulerVersion===2;
   if(r===0){streak=0;ease=Math.max(1.3,ease-.2);lapses++}
   else{
    if(r===1)ease=Math.max(1.3,ease-.15);
    if(r===3)ease=Math.min(3.2,ease+.15);
-   if(streak===1)interval=r===1?1:r===2?1:3;
+   if(isNewScheduler&&(!p||(learningStep===0&&!p.streak))){
+    // Initial learning: 10, 20 or 30 minutes according to the grade.
+    learningStep=1;streak=0;interval=0;
+   }else if(isNewScheduler&&learningStep===1){
+    // First recall after learning moves the direction to the next day.
+    learningStep=2;streak=1;interval=1;
+   }else if(streak===1)interval=r===1?1:r===2?1:3;
    else if(streak===2)interval=r===1?2:r===2?3:6;
    else interval=Math.min(365,Math.max(1,Math.round((p?.interval||1)*ease*(r===1?.55:r===3?1.3:1))));
   }
   const start=new Date(h.at);start.setHours(0,0,0,0);
-  const due=r===0?h.at+600000:start.getTime()+interval*DAY+43200000;
-  out[k]={due,interval,streak,ease,lapses,lastReviewed:h.at,lastRating:r,reviewCount:(p?.reviewCount??0)+1};
+  const due=r===0?h.at+600000:
+   isNewScheduler&&learningStep===1?h.at+(r===1?10:r===2?20:30)*60000:
+   start.getTime()+interval*DAY+43200000;
+  out[k]={due,interval,streak,ease,lapses,learningStep,lastReviewed:h.at,lastRating:r,reviewCount:(p?.reviewCount??0)+1};
  }
  // Preserve older backups whose progress records lack matching events.
  for(const [k,p] of Object.entries(existing)){
