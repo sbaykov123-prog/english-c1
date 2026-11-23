@@ -17,20 +17,32 @@ function dueItems(){const t=now();return allItems().filter(x=>x.p && x.p.due<=t)
 function unseenItems(){return allItems().filter(x=>!x.p)}
 function unready(c,dir){return dir===0&&!c.definition}
 function estimateInterval(p,r){
-  // Transparent, conservative SM-2-inspired scheduler. Not official FSRS.
-  if(r===0)return {due:now()+10*60000,interval:0,streak:0,ease:Math.max(1.3,(p?.ease??2.5)-.2),lapses:(p?.lapses??0)+1};
-  let streak=(p?.streak??0)+1;
-  let ease=p?.ease??2.5;
+  // SM-2-inspired review intervals with an initial short learning step.
+  // Only brand-new directions enter this step. Existing progress is untouched.
+  const t=now(),MIN=60000;
+  const easeBase=p?.ease??2.5;
+  if(r===0)return {due:t+10*MIN,interval:0,streak:0,ease:Math.max(1.3,easeBase-.2),lapses:(p?.lapses??0)+1,learningStep:p?.learningStep===1?1:(p?.learningStep??0)};
+  let ease=easeBase;
   if(r===1)ease=Math.max(1.3,ease-.15);
   if(r===3)ease=Math.min(3.2,ease+.15);
+  if(!p || p.learningStep===0 && !p.streak){
+    // First successful answer: return later today, not tomorrow.
+    const minutes=r===1?10:r===2?20:30;
+    return {due:t+minutes*MIN,interval:0,streak:0,ease,lapses:p?.lapses??0,learningStep:1};
+  }
+  if(p.learningStep===1){
+    // First successful recall after the short step: consolidate tomorrow.
+    return {due:dayStart(t)+DAY+12*3600000,interval:1,streak:1,ease,lapses:p.lapses??0,learningStep:2};
+  }
+  const streak=(p?.streak??0)+1;
   let days;
   if(streak===1)days=r===1?1:r===2?1:3;
   else if(streak===2)days=r===1?2:r===2?3:6;
   else days=Math.max(1,Math.round((p?.interval||1)*ease*(r===1?.55:r===3?1.3:1)));
   days=Math.min(days,365);
-  return {due:dayStart(now())+days*DAY+12*3600000,interval:days,streak,ease,lapses:p?.lapses??0};
+  return {due:dayStart(t)+days*DAY+12*3600000,interval:days,streak,ease,lapses:p?.lapses??0,learningStep:p?.learningStep??2};
 }
-function schedule(c,dir,r){const id=key(c.id,dir),old=progress(c.id,dir),next=estimateInterval(old,r);state.progress[id]={...next,lastReviewed:now(),lastRating:r,reviewCount:(old?.reviewCount??0)+1};state.history.push({eventId:crypto.randomUUID(),id:c.id,dir,rating:r,at:now(),nextDue:next.due});persist()}
+function schedule(c,dir,r){const id=key(c.id,dir),old=progress(c.id,dir),next=estimateInterval(old,r);state.progress[id]={...next,lastReviewed:now(),lastRating:r,reviewCount:(old?.reviewCount??0)+1};state.history.push({eventId:crypto.randomUUID(),id:c.id,dir,rating:r,at:now(),nextDue:next.due,schedulerVersion:2});persist()}
 function getCounts(){const d=dueItems(),u=unseenItems();return {due:d.length,new:u.length,studied:allItems().length-u.length}}
 function normTerm(s){return String(s||'').normalize('NFKC').toLowerCase().replace(/[’‘]/g,"'").replace(/\s+/g,' ').trim()}
 function nav(){return `<nav class="nav"><div class="navinner"><button data-view="home" class="${view==='home'?'active':''}">⌂ Главная</button><button data-view="browse" class="${view==='browse'?'active':''}">▤ Словарь</button><button data-view="settings" class="${view==='settings'?'active':''}">⚙ Настройки</button></div></nav>`}
@@ -38,7 +50,7 @@ function shell(content){$('#app').innerHTML=`<main class="wrap"><div class="top"
 function filteredItems(){return allItems().filter(x=>filterDeck==='Все'||x.card.deck===filterDeck)}
 function home(){const c=getCounts(),decks=[...new Set(state.cards.map(x=>x.deck))],studied=new Set(state.history.map(x=>x.id)).size;
   shell(`<section class="panel hero"><h1>Твоя практика английского</h1><p class="muted">Двусторонние карточки · интервальные повторения · офлайн</p></section>
-  <section class="panel"><div class="counts"><div class="metric"><strong>${c.due}</strong><span>К повторению</span></div><div class="metric"><strong>${c.new}</strong><span>Не изучено, сторон</span></div><div class="metric"><strong>${studied}</strong><span>Выражений изучалось</span></div></div><br><div class="actions"><button class="primary" data-start="all">Начать занятие</button><button class="secondary" data-view="browse">Словарь</button></div><p class="notice">Новое: до ${state.preferences.dailyNew} выражений за занятие (каждое в двух направлениях). Повторение ранее изученного — в первую очередь. Два направления выражения не показываются подряд.</p></section>
+  <section class="panel"><div class="counts"><div class="metric"><strong>${c.due}</strong><span>К повторению</span></div><div class="metric"><strong>${c.new}</strong><span>Не изучено, сторон</span></div><div class="metric"><strong>${studied}</strong><span>Выражений изучалось</span></div></div><br><div class="actions"><button class="primary" data-start="all">Начать занятие</button><button class="secondary" data-view="browse">Словарь</button></div><p class="notice">Новое: до ${state.preferences.dailyNew} выражений за занятие (каждое в двух направлениях). Первое повторение нового направления — через 10–30 минут, затем на следующий день. Повторение ранее изученного — в первую очередь. Два направления выражения не показываются подряд.</p></section>
   <div class="sectionrow"><h2>Тематические колоды</h2><span class="small muted">${decks.length}</span></div><section class="panel">${decks.map(d=>`<div class="deckrow"><div><div class="deckname">${esc(d)}</div><div class="muted small">${state.cards.filter(x=>x.deck===d).length} выражений</div></div><button class="secondary" data-deck="${esc(d)}">Учить</button></div>`).join('')}</section>
   <section class="panel"><b>Резервная копия</b><p class="mini muted">Экспортируй JSON, загрузи его в чат для объединения с прогрессом другого устройства или сохрани в приватном GitHub. В «Настройках» можно безопасно объединить файлы.</p><button class="secondary" data-export>Скачать резервную копию</button></section>`)}
 // Keep two directions of the same expression apart by at least six OTHER unique expressions.
