@@ -1798,5 +1798,20 @@
     "note": "Originally related to mange, a skin disease in animals. Figuratively shabby or neglected; can sound disparaging when applied to people.",
     "source": "chatgpt-confirmed",
     "initialStatus": "новая"
+  },
+  {
+    "id": "word-adversity-20261123",
+    "term": "adversity (noun)",
+    "ipa": "/ədˈvɜːsəti/",
+    "ru": "невзгоды; жизненные трудности; тяжёлые обстоятельства; испытания",
+    "deck": "Повседневные",
+    "definition": "A difficult or unpleasant situation, especially one involving serious problems, hardship or misfortune.",
+    "examples": [
+      "She demonstrated remarkable resilience in the face of adversity.",
+      "People often discover their true strengths when they experience adversity."
+    ],
+    "note": "Usually uncountable in this sense. Collocations: overcome adversity, in the face of adversity, cope with adversity. More serious than everyday difficulty.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая"
   }
 ]
