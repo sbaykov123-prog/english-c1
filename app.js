@@ -7,7 +7,7 @@ const now=()=>Date.now();
 const dayStart=(t=now())=>{const d=new Date(t);d.setHours(0,0,0,0);return d.getTime()};
 const dateText=t=>new Date(t).toLocaleDateString('ru-RU',{day:'numeric',month:'short'});
 const directionLabel=d=>d===0?'Определение → фраза':'Фраза → значение';
-let seed=[],state=null,view='home',session=null,filterDeck='Все',filterText='',editId=null,editReturn='browse';
+let seed=[],state=null,view='home',session=null,filterDeck='Все',filterText='',editId=null,editReturn='browse',calendarSelectedDay=null;
 const defaultState=()=>({version:1,cards:[],progress:{},history:[],preferences:{dailyNew:5,dailyReview:25},createdAt:now()});
 function persist(){localStorage.setItem(STORAGE_KEY,JSON.stringify(state))}
 function key(id,dir){return `${id}:${dir}`}
@@ -48,9 +48,53 @@ function normTerm(s){return String(s||'').normalize('NFKC').toLowerCase().replac
 function nav(){return `<nav class="nav"><div class="navinner"><button data-view="home" class="${view==='home'?'active':''}">⌂ Главная</button><button data-view="browse" class="${view==='browse'?'active':''}">▤ Словарь</button><button data-view="settings" class="${view==='settings'?'active':''}">⚙ Настройки</button></div></nav>`}
 function shell(content){$('#app').innerHTML=`<main class="wrap"><div class="top"><div class="logo"><span class="star">✦</span>English C1</div><span class="pill">Личное обучение</span></div>${content}</main>${nav()}`}
 function filteredItems(){return allItems().filter(x=>filterDeck==='Все'||x.card.deck===filterDeck)}
+// 14-day forecast using currently scheduled review directions only.
+// Date arithmetic uses local calendar days, so daylight-saving changes do not shift dates.
+function localDayKey(time){
+ const d=new Date(time);
+ return [d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-');
+}
+function reviewForecast(startTime=now(),days=14){
+ const today=dayStart(startTime),slots=[];
+ for(let i=0;i<days;i++){
+  const d=new Date(today);d.setDate(d.getDate()+i);
+  slots.push({key:localDayKey(d.getTime()),date:d,count:0,items:[]});
+ }
+ const overdue=[],byDay=new Map(slots.map(day=>[day.key,day]));
+ for(const item of allItems()){
+  const due=Number(item.p?.due);
+  if(!Number.isFinite(due)||due<=0)continue;
+  if(due<today){overdue.push(item);continue}
+  const slot=byDay.get(localDayKey(due));
+  if(slot){slot.count++;slot.items.push(item)}
+ }
+ overdue.sort((a,b)=>a.p.due-b.p.due);
+ for(const slot of slots)slot.items.sort((a,b)=>a.p.due-b.p.due);
+ return {slots,overdue};
+}
+function calendarPanel(){
+ const {slots,overdue}=reviewForecast();
+ const valid=calendarSelectedDay==='overdue'||slots.some(x=>x.key===calendarSelectedDay);
+ const selected=valid?calendarSelectedDay:null;
+ const details=selected==='overdue'?overdue:slots.find(x=>x.key===selected)?.items;
+ const title=selected==='overdue'?'Просроченные повторения':slots.find(x=>x.key===selected)?.date.toLocaleDateString('ru-RU',{weekday:'long',day:'numeric',month:'long'});
+ const dayLabels=['Вс','Пн','Вт','Ср','Чт','Пт','Сб'];
+ return `<section class="panel" aria-label="Календарь повторений">
+ <div class="sectionrow calendar-heading"><h2>Календарь повторений</h2><span class="small muted">14 дней</span></div>
+ <p class="mini muted">Числа показывают запланированные направления карточек, а не уникальные выражения. Новые ещё не изученные карточки не учитываются. Расписание изменяется после ответов.</p>
+ <button type="button" class="calendar-overdue ${selected==='overdue'?'selected':''}" data-calendar-day="overdue" aria-pressed="${selected==='overdue'}"><span>Просрочено до сегодня</span><strong>${overdue.length}</strong></button>
+ <div class="calendar-grid" role="group" aria-label="Даты повторений">
+ ${slots.map(({key,date,count},i)=>`<button type="button" class="calendar-day ${i===0?'is-today':''} ${selected===key?'selected':''} ${count===0?'is-empty':''}" data-calendar-day="${key}" aria-pressed="${selected===key}" aria-label="${esc(date.toLocaleDateString('ru-RU',{weekday:'long',day:'numeric',month:'long'}))}: ${count} повторений">
+   <span class="calendar-weekday">${dayLabels[date.getDay()]}</span><span class="calendar-date">${date.getDate()}</span><strong class="calendar-count">${count}</strong></button>`).join('')}
+ </div>
+ ${details?`<div class="calendar-details"><div class="calendar-detail-title"><h3>${esc(title)}</h3><button type="button" class="ghost calendar-close" data-calendar-clear aria-label="Закрыть список">✕</button></div>
+ ${details.length?`<div class="calendar-detail-list">${details.map(x=>`<div class="calendar-detail-item"><div><b>${esc(x.card.term)}</b><small class="muted">${esc(directionLabel(x.dir))}</small></div><time>${new Date(x.p.due).toLocaleTimeString('ru-RU',{hour:'2-digit',minute:'2-digit'})}</time></div>`).join('')}</div>`:'<p class="mini muted">На эту дату повторения не запланированы.</p>'}</div>`:''}
+ </section>`;
+}
 function home(){const c=getCounts(),decks=[...new Set(state.cards.map(x=>x.deck))],studied=new Set(state.history.map(x=>x.id)).size;
   shell(`<section class="panel hero"><h1>Твоя практика английского</h1><p class="muted">Двусторонние карточки · интервальные повторения · офлайн</p></section>
   <section class="panel"><div class="counts"><div class="metric"><strong>${c.due}</strong><span>К повторению</span></div><div class="metric"><strong>${c.new}</strong><span>Не изучено, сторон</span></div><div class="metric"><strong>${studied}</strong><span>Выражений изучалось</span></div></div><br><div class="actions"><button class="primary" data-start="all">Начать занятие</button><button class="secondary" data-view="browse">Словарь</button></div><p class="notice">Новое: до ${state.preferences.dailyNew} выражений за занятие (каждое в двух направлениях). Первое повторение нового направления — через 10–30 минут, затем на следующий день. Повторение ранее изученного — в первую очередь. Два направления выражения не показываются подряд.</p></section>
+  ${calendarPanel()}
   <div class="sectionrow"><h2>Тематические колоды</h2><span class="small muted">${decks.length}</span></div><section class="panel">${decks.map(d=>`<div class="deckrow"><div><div class="deckname">${esc(d)}</div><div class="muted small">${state.cards.filter(x=>x.deck===d).length} выражений</div></div><button class="secondary" data-deck="${esc(d)}">Учить</button></div>`).join('')}</section>
   <section class="panel"><b>Резервная копия</b><p class="mini muted">Экспортируй JSON, загрузи его в чат для объединения с прогрессом другого устройства или сохрани в приватном GitHub. В «Настройках» можно безопасно объединить файлы.</p><button class="secondary" data-export>Скачать резервную копию</button></section>`)}
 // Keep two directions of the same expression apart by at least six OTHER unique expressions.
@@ -206,7 +250,7 @@ function importBackup(file){
   alert('Готово. Словарь: '+state.cards.length+' выражений; история: '+state.history.length+' ответов. Текущая история сохранена.');
  }).catch(e=>alert('Ошибка объединения: '+e.message));
 }
-document.addEventListener('click',e=>{const el=e.target.closest('[data-view],[data-deck],[data-start],[data-flip],[data-rate],[data-end],[data-add],[data-edit],[data-edit-current],[data-cancel-edit],[data-export],[data-import],[data-template],[data-save-settings]');if(!el)return;if(el.hasAttribute('data-view')){view=el.dataset.view;session=null;render()}else if(el.hasAttribute('data-deck'))chooseSession(el.dataset.deck);else if(el.hasAttribute('data-start'))chooseSession();else if(el.hasAttribute('data-flip')){if(session){session.revealed=!session.revealed;render()}}else if(el.hasAttribute('data-rate'))rate(Number(el.dataset.rate));else if(el.hasAttribute('data-end')){view='summary';render()}else if(el.hasAttribute('data-add')){editId=null;editReturn='browse';view='edit';render()}else if(el.hasAttribute('data-edit'))openCardEditor(el.dataset.edit);else if(el.hasAttribute('data-edit-current')){if(session)openCardEditor(session.queue[session.index].card.id,'study')}else if(el.hasAttribute('data-cancel-edit'))cancelCardEditor();else if(el.hasAttribute('data-export'))exportBackup();else if(el.hasAttribute('data-import'))$('#backupInput')?.click();else if(el.hasAttribute('data-template'))downloadImportTemplate();else if(el.hasAttribute('data-save-settings')){state.preferences.dailyNew=Math.max(1,Math.min(30,Number($('#dailyNew').value)||5));state.preferences.dailyReview=Math.max(1,Math.min(100,Number($('#dailyReview').value)||25));persist();render()}});
+document.addEventListener('click',e=>{const el=e.target.closest('[data-view],[data-calendar-day],[data-calendar-clear],[data-deck],[data-start],[data-flip],[data-rate],[data-end],[data-add],[data-edit],[data-edit-current],[data-cancel-edit],[data-export],[data-import],[data-template],[data-save-settings]');if(!el)return;if(el.hasAttribute('data-view')){view=el.dataset.view;session=null;render()}else if(el.hasAttribute('data-calendar-day')){calendarSelectedDay=el.dataset.calendarDay;view='home';render()}else if(el.hasAttribute('data-calendar-clear')){calendarSelectedDay=null;view='home';render()}else if(el.hasAttribute('data-deck'))chooseSession(el.dataset.deck);else if(el.hasAttribute('data-start'))chooseSession();else if(el.hasAttribute('data-flip')){if(session){session.revealed=!session.revealed;render()}}else if(el.hasAttribute('data-rate'))rate(Number(el.dataset.rate));else if(el.hasAttribute('data-end')){view='summary';render()}else if(el.hasAttribute('data-add')){editId=null;editReturn='browse';view='edit';render()}else if(el.hasAttribute('data-edit'))openCardEditor(el.dataset.edit);else if(el.hasAttribute('data-edit-current')){if(session)openCardEditor(session.queue[session.index].card.id,'study')}else if(el.hasAttribute('data-cancel-edit'))cancelCardEditor();else if(el.hasAttribute('data-export'))exportBackup();else if(el.hasAttribute('data-import'))$('#backupInput')?.click();else if(el.hasAttribute('data-template'))downloadImportTemplate();else if(el.hasAttribute('data-save-settings')){state.preferences.dailyNew=Math.max(1,Math.min(30,Number($('#dailyNew').value)||5));state.preferences.dailyReview=Math.max(1,Math.min(100,Number($('#dailyReview').value)||25));persist();render()}});
 document.addEventListener('submit',e=>{if(e.target.id==='cardForm'){e.preventDefault();saveCard(e.target)}else if(e.target.id==='cardsImportForm'){e.preventDefault();importCardsText($('#cardsImportText').value)}});
 document.addEventListener('change',e=>{if(e.target.id==='backupInput')importBackup(e.target.files[0]);if(e.target.id==='cardsImportFile'){const file=e.target.files[0];if(file)file.text().then(importCardsText).catch(err=>showImportResult('Не удалось прочитать файл.',true))}if(e.target.id==='deckSelect'){filterDeck=e.target.value;render()}});
 document.addEventListener('input',e=>{if(e.target.id==='searchTerm'){filterText=e.target.value;$('#listCards').innerHTML=state.cards.filter(c=>(filterDeck==='Все'||c.deck===filterDeck)&&`${c.term} ${c.ru} ${c.definition}`.toLowerCase().includes(filterText.toLowerCase())).map(cardRow).join('')}});
