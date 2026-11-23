@@ -15,7 +15,7 @@ function replay(history,cards,existing){
   const k=h.id+':'+h.dir,p=out[k],r=h.rating;
   let ease=p?.ease??2.5,streak=(p?.streak??0)+1,interval=0,lapses=p?.lapses??0,learningStep=p?.learningStep;
   const isNewScheduler=h.schedulerVersion===2;
-  if(r===0){streak=0;ease=Math.max(1.3,ease-.2);lapses++}
+  if(r===0){streak=0;ease=Math.max(1.3,ease-.2);lapses++;if(isNewScheduler)learningStep=0}
   else{
    if(r===1)ease=Math.max(1.3,ease-.15);
    if(r===3)ease=Math.min(3.2,ease+.15);
