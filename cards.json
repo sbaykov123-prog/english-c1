@@ -1813,5 +1813,36 @@
     "note": "Usually uncountable in this sense. Collocations: overcome adversity, in the face of adversity, cope with adversity. More serious than everyday difficulty.",
     "source": "chatgpt-confirmed",
     "initialStatus": "новая"
+  },
+  {
+    "id": "phrase-throw-caution-to-the-winds-20261125",
+    "term": "to throw caution to the wind(s)",
+    "ipa": "/tə ˌθrəʊ ˈkɔːʃən tə ðə ˈwɪnd(z)/",
+    "ru": "отбросить осторожность; рискнуть, не думая о последствиях",
+    "deck": "Повседневные",
+    "definition": "To stop being careful about possible risks and act boldly or impulsively.",
+    "examples": [
+      "He threw caution to the wind and quit his job without another offer.",
+      "Sometimes you need to throw caution to the winds and take a chance."
+    ],
+    "note": "Both throw caution to the wind and throw caution to the winds are used; figurative idiom for taking a risk despite possible consequences.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая",
+    "keyHint": "caution"
+  },
+  {
+    "id": "word-decant-20261125",
+    "term": "decant (verb)",
+    "ipa": "/dɪˈkænt/",
+    "ru": "переливать жидкость из одной ёмкости в другую; декантировать вино",
+    "deck": "Повседневные",
+    "definition": "To pour liquid carefully from one container into another, especially to separate it from sediment.",
+    "examples": [
+      "The waiter carefully decanted the red wine before serving it.",
+      "Decant the liquid into a clean bottle, leaving the sediment behind."
+    ],
+    "note": "Often used with wine or liquids; decanter = a vessel for serving wine. Can also mean moving people or things to another place temporarily, e.g. during renovations.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая"
   }
 ]
