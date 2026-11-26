@@ -1844,5 +1844,21 @@
     "note": "Often used with wine or liquids; decanter = a vessel for serving wine. Can also mean moving people or things to another place temporarily, e.g. during renovations.",
     "source": "chatgpt-confirmed",
     "initialStatus": "новая"
+  },
+  {
+    "id": "phrase-rubber-meets-the-road-20261126",
+    "term": "(where) the rubber meets the road",
+    "ipa": "/ðə ˌrʌbə miːts ðə ˈrəʊd/",
+    "ru": "момент истины; когда дело доходит до практики; переход от слов к делу",
+    "deck": "Работа и переговоры",
+    "definition": "The point at which ideas, plans or promises are put into practice and their effectiveness is tested.",
+    "examples": [
+      "Developing a strategy is one thing, but implementing it is where the rubber meets the road.",
+      "The proposal looks promising on paper, but the rubber meets the road when we have to make it work in practice."
+    ],
+    "note": "Predominantly American English. Often: This is where the rubber meets the road. Related BrE: the acid test, the moment of truth, put something into practice.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая",
+    "keyHint": "rubber"
   }
 ]
