@@ -1860,5 +1860,20 @@
     "source": "chatgpt-confirmed",
     "initialStatus": "новая",
     "keyHint": "rubber"
+  },
+  {
+    "id": "word-bracken-20261127",
+    "term": "bracken (noun)",
+    "ipa": "/ˈbrækən/",
+    "ru": "орляк, папоротник-орляк; заросли папоротника",
+    "deck": "Повседневные",
+    "definition": "A large, common type of wild fern that grows in woods and on open hillsides, often forming dense patches.",
+    "examples": [
+      "We walked through waist-high bracken on our way to the lake.",
+      "The hillside was covered in bracken, which had turned golden-brown in autumn."
+    ],
+    "note": "Usually uncountable. Bracken refers to the fern Pteridium aquilinum; fern is the general term. Common: a patch of bracken; bracken-covered hillsides.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая"
   }
 ]
