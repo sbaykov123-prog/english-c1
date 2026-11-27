@@ -1891,5 +1891,21 @@
     "source": "chatgpt-confirmed",
     "initialStatus": "новая",
     "keyHint": "stubbornly"
+  },
+  {
+    "id": "phrase-sputter-out-20261127",
+    "term": "to sputter out",
+    "ipa": "/tə ˌspʌtə ˈaʊt/",
+    "ru": "постепенно угасать, затухать, сходить на нет; заглохнуть (о двигателе)",
+    "deck": "Повседневные",
+    "definition": "To gradually become weaker and eventually stop, especially when an activity, process or machine loses energy or momentum.",
+    "examples": [
+      "Their ambitious project gradually sputtered out due to a lack of funding.",
+      "The engine sputtered out just as we reached the top of the hill."
+    ],
+    "note": "Sputter describes an irregular, spluttering sound or an engine running unevenly; sputter out can describe a process losing momentum. Compare fizzle out (fail or fade), peter out (gradually diminish).",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая",
+    "keyHint": "sputter"
   }
 ]
