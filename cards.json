@@ -1875,5 +1875,21 @@
     "note": "Usually uncountable. Bracken refers to the fern Pteridium aquilinum; fern is the general term. Common: a patch of bracken; bracken-covered hillsides.",
     "source": "chatgpt-confirmed",
     "initialStatus": "новая"
+  },
+  {
+    "id": "phrase-stubbornly-determined-20261127",
+    "term": "stubbornly determined",
+    "ipa": "/ˈstʌbənli dɪˈtɜːmɪnd/",
+    "ru": "упорно настроенный; непреклонно решивший добиться своего; твёрдо намеренный, несмотря на препятствия",
+    "deck": "Повседневные",
+    "definition": "Unwilling to give up on a goal or change one's mind, even when faced with difficulties, opposition or setbacks.",
+    "examples": [
+      "She was stubbornly determined to prove that everyone had underestimated her.",
+      "Despite repeated setbacks, he remained stubbornly determined to build a successful career."
+    ],
+    "note": "Natural collocation; often be stubbornly determined to do something. Can convey admiration for persistence or criticism of inflexibility. Compare fiercely determined, resolutely determined.",
+    "source": "chatgpt-confirmed",
+    "initialStatus": "новая",
+    "keyHint": "stubbornly"
   }
 ]
